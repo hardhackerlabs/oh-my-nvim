@@ -1,0 +1,8 @@
+require('plugins')
+require('settings')
+require('mappings')
+require('telescope-plug')
+require('lspconfig-plug')
+require('cmp-plug')
+require('neotree-plug')
+require('nvim-web-devicons-plug')
