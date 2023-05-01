@@ -1,5 +1,11 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
 
 return require('packer').startup(function(use)
     -- packer
@@ -31,21 +37,25 @@ return require('packer').startup(function(use)
                         '                                                                                 ',
                     },
                     project = { enable = false },
-
+                    mru = { limit = 9 },
                     shortcut = {
-                        { desc = ' Update', group = '@property', action = 'Lazy update', key = 'u' },
                         {
-                            desc = ' Apps',
-                            group = 'DiagnosticHint',
-                            action = 'Telescope app',
-                            key = 'a',
+                            desc = ' Update',
+                            group = 'HardHackerBlue',
+                            action = 'PackerUpdate',
+                            key = 'U' 
                         },
                         {
-                            desc = ' dotfiles',
-                            group = 'Number',
-                            action = 'Telescope dotfiles',
-                            key = 'd',
+                            desc = ' Setup',
+                            group = 'HardHackerCyan',
+                            action = 'e ~/.config/nvim/init.lua',
+                            key = 'S',
                         },
+                    },
+                    footer = {
+                        '',
+                        '',
+                        '🚀 Hardhacker do hard things.',
                     },
                 },
             }
