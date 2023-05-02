@@ -1,11 +1,5 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])
 
 return require('packer').startup(function(use)
     -- packer
@@ -15,6 +9,7 @@ return require('packer').startup(function(use)
     -- dashboard-nvim
     use {
         'glepnir/dashboard-nvim',
+        requires = {'nvim-tree/nvim-web-devicons'},
         event = 'VimEnter',
         config = function()
             require('dashboard').setup {
@@ -41,7 +36,7 @@ return require('packer').startup(function(use)
                     shortcut = {
                         {
                             desc = ' Update',
-                            group = 'HardHackerBlue',
+                            group = 'HardHackerPurple',
                             action = 'PackerUpdate',
                             key = 'U' 
                         },
@@ -59,36 +54,48 @@ return require('packer').startup(function(use)
                     },
                 },
             }
-        end,
-        requires = {'nvim-tree/nvim-web-devicons'}
+
+            vim.cmd([[
+            hi! link DashboardHeader  HardHackerRed
+            hi! link DashboardFooter  HardHackerGeen
+            ]])
+        end
     }
 
     -- floaterm
-    use 'voldikss/vim-floaterm'
-    vim.g.floaterm_keymap_toggle = '<F12>'
-    vim.g.floaterm_width = 0.8
-    vim.g.floaterm_height = 0.9
-    vim.g.floaterm_position = 'bottom'
+    use {
+        'voldikss/vim-floaterm',
+        config = function()
+            vim.g.floaterm_keymap_toggle = '<F12>'
+            vim.g.floaterm_width = 0.8
+            vim.g.floaterm_height = 0.9
+            vim.g.floaterm_position = 'bottom'
+        end
+    }
 
     -- gitsigns
     use {
         'lewis6991/gitsigns.nvim',
+        requires = { 'nvim-lua/plenary.nvim' },
         config = function() 
             require('gitsigns').setup()
-        end,
-        requires = { 'nvim-lua/plenary.nvim' }
+        end
     }
 
     -- airline
-    use 'vim-airline/vim-airline'
-    use 'vim-airline/vim-airline-themes'
-    vim.g.airline_theme = 'deus'
-    vim.g.airline_powerline_fonts = 1
-    vim.cmd([[
-    if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-    endif
-    ]])
+    use {
+        'vim-airline/vim-airline',
+        requires = { 'vim-airline/vim-airline-themes' },
+        config = function()
+            vim.g.airline_theme = 'deus'
+            vim.g.airline_powerline_fonts = 1
+            vim.cmd([[
+            if !exists('g:airline_symbols')
+                let g:airline_symbols = {}
+            endif
+            ]])
+        end
+    }
 
     -- lsp
     use 'neovim/nvim-lspconfig'
@@ -112,49 +119,62 @@ return require('packer').startup(function(use)
 	    }
     }
 
-    -- treesitter
- --   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
- --   require'nvim-treesitter.configs'.setup {
- --     ensure_installed = { "c", "go", "vim", "rust", "javascript", "markdown", "html", "css", "bash", "python"},
- --     sync_install = false,
- --     auto_install = true,
- --     ignore_install = { },
-
- --     highlight = {
- --       enable = true,
- --       disable = { },
- --       disable = function(lang, buf)
- --           local max_filesize = 100 * 1024 -- 100 KB
- --           local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
- --           if ok and stats and stats.size > max_filesize then
- --               return true
- --           end
- --       end,
- --       additional_vim_regex_highlighting = false,
- --     },
- --   }
-
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         vim.lsp.diagnostic.on_publish_diagnostics, {
             virtual_text = false
     })
 
+    --treesitter
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        config = function()
+            require'nvim-treesitter.configs'.setup {
+                ensure_installed = { "c", "lua", "go", "javascript", "markdown", "html", "css", "bash", "python" },
+                sync_install = false,
+                auto_install = true,
+                ignore_install = { },
+
+                highlight = {
+                    enable = true,
+                    disable = { },
+                    disable = function(lang, buf)
+                        local max_filesize = 100 * 1024 -- 100 KB
+                        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+                        if ok and stats and stats.size > max_filesize then
+                            return true
+                        end
+                    end,
+                    additional_vim_regex_highlighting = false,
+                },
+            }
+        end
+    }
+
     -- languages
     use 'fatih/vim-go'
     use 'pangloss/vim-javascript'
 
-    use 'rust-lang/rust.vim'
-    vim.g.rustfmt_autosave = 1
-    vim.g.rustfmt_emit_files = 1
-    vim.g.rustfmt_fail_silently = 0
+    use {
+        'rust-lang/rust.vim',
+        config = function()
+            vim.g.rustfmt_autosave = 1
+            vim.g.rustfmt_emit_files = 1
+            vim.g.rustfmt_fail_silently = 0
+        end
+    }
 
     -- theme
     use {'dracula/vim', as = 'dracula'}
     use {'hardhackerlabs/theme-vim',  as = 'hardhacker'}
 
     -- telescope
-    use { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
-    -- require'telescope'.setup{}
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+        config = function()
+            require'telescope'.setup{}
+        end
+    }
     
     -- neo-tree
     use {
@@ -207,4 +227,8 @@ return require('packer').startup(function(use)
         end
     }
 
+    use {
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    }
 end)
