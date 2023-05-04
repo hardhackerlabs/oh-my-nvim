@@ -82,19 +82,10 @@ return require('packer').startup(function(use)
         end
     }
 
-    -- airline
+    -- lualine
     use {
-        'vim-airline/vim-airline',
-        requires = { 'vim-airline/vim-airline-themes' },
-        config = function()
-            vim.g.airline_theme = 'deus'
-            vim.g.airline_powerline_fonts = 1
-            vim.cmd([[
-            if !exists('g:airline_symbols')
-                let g:airline_symbols = {}
-            endif
-            ]])
-        end
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
     -- lsp
