@@ -159,12 +159,7 @@ return require('packer').startup(function(use)
     use {'hardhackerlabs/theme-vim',  as = 'hardhacker'}
 
     -- bufferline
-    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons',
-        config = function()
-            vim.opt.termguicolors = true
-            require("bufferline").setup{}
-        end
-    }
+    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
 
     -- telescope
     use {

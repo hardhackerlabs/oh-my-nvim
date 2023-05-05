@@ -85,5 +85,6 @@ vim.cmd([[
     exec        "nohlsearch"
     syntax      enable
     syntax      on
+    let g:hardhacker_darker = 1
     colorscheme hardhacker
 ]])
