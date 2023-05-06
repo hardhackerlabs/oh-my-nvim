@@ -6,7 +6,7 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     use 'rcarriga/nvim-notify'
 
-    -- dashboard-nvim
+    -- Starting screen
     use {
         'glepnir/dashboard-nvim',
         requires = {'nvim-tree/nvim-web-devicons'},
@@ -62,7 +62,7 @@ return require('packer').startup(function(use)
         end
     }
 
-    -- floaterm
+    -- Terminal
     use {
         'voldikss/vim-floaterm',
         config = function()
@@ -72,7 +72,7 @@ return require('packer').startup(function(use)
         end
     }
 
-    -- gitsigns
+    -- Git
     use {
         'lewis6991/gitsigns.nvim',
         requires = { 'nvim-lua/plenary.nvim' },
@@ -81,7 +81,7 @@ return require('packer').startup(function(use)
         end
     }
 
-    -- lualine
+    -- Status line
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
@@ -114,7 +114,7 @@ return require('packer').startup(function(use)
             virtual_text = false
     })
 
-    --treesitter
+    -- Syntax highlighting
     use {
         'nvim-treesitter/nvim-treesitter',
         config = function()
@@ -153,14 +153,14 @@ return require('packer').startup(function(use)
         end
     }
 
-    -- theme
+    -- Theme
     use {'dracula/vim', as = 'dracula'}
     use {'hardhackerlabs/theme-vim',  as = 'hardhacker'}
 
-    -- bufferline
+    -- Buffer management
     use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
 
-    -- telescope
+    -- File find and search.
     use {
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
@@ -169,7 +169,7 @@ return require('packer').startup(function(use)
         end
     }
 
-    -- nvim-tree
+    -- File explorer
     use {
         'nvim-tree/nvim-tree.lua',
         requires = {'nvim-tree/nvim-web-devicons'},
@@ -194,8 +194,21 @@ return require('packer').startup(function(use)
         end
     }
 
+    -- Preview markdown files via brower. 
     use {
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
+    }
+
+    -- Colors highlighting
+    use {
+        'NvChad/nvim-colorizer.lua',
+        config = function()
+            require 'colorizer'.setup{
+                user_default_options = {
+                    names = false,
+                },
+            }
+        end,
     }
 end)

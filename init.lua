@@ -2,7 +2,6 @@ require('plugins')
 require('settings')
 require('mappings')
 
-require('telescope/telescope')
 require('lspconfig/lspconfig')
 require('autocmp/autocmp')
 require('nvim-web-devicons/nvim-web-devicons')
