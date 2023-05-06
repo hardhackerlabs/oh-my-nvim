@@ -1,8 +1,8 @@
-# oh-my-nvim
+# 💎 oh-my-nvim
 
-A handy, pretty, modern nvim configuration with integrated cool, useful plugins.💥
+A handy, pretty, modern nvim configuration with integrated cool, useful plugins.
 
-## Features
+## 📦 Features
 
 * File explorer
 * File find and search
@@ -20,7 +20,7 @@ A handy, pretty, modern nvim configuration with integrated cool, useful plugins.
 * Markdown Preview via your browser
 * Starting screen
 
-## Install
+## 🚧 Install
 
 ### Pre-install
 
@@ -33,10 +33,10 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 
 TODO
 
-## Shortcut Keys
+## ⌨️  Shortcut Keys
 
 TODO
 
-## Plugins
+## 🧩 Plugins
 
 TODO
