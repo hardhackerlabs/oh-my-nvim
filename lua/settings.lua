@@ -1,7 +1,5 @@
 HOME = os.getenv("HOME")
 
-vim.g.mapleader = ' '
-vim.g.maplocalleader = '\\'
 vim.g.python3_host_prog = "/usr/bin/python3"
 
 vim.opt.termguicolors = true
@@ -85,6 +83,6 @@ vim.cmd([[
     exec        "nohlsearch"
     syntax      enable
     syntax      on
-    let g:hardhacker_darker = 1
+    " let g:hardhacker_darker = 1
     colorscheme hardhacker
 ]])

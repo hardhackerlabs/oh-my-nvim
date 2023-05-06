@@ -66,7 +66,6 @@ return require('packer').startup(function(use)
     use {
         'voldikss/vim-floaterm',
         config = function()
-            vim.g.floaterm_keymap_toggle = '<F12>'
             vim.g.floaterm_width = 0.8
             vim.g.floaterm_height = 0.9
             vim.g.floaterm_position = 'bottom'
