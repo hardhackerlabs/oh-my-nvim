@@ -11,26 +11,20 @@ cmp.setup({
     end,
   },
   window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
-      --border = { '', '' ,'', ' ', '', '', '', ' ' }, -- the border option is the same as `|help nvim_open_win|`
-      --winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
-      --max_width = 120,
-      --min_width = 60,
-      --max_height = math.floor(vim.o.lines * 0.3),
-      --min_height = 1,
+      completion = cmp.config.window.bordered({
+          border = "rounded",
+          winhighlight = "Normal:Normal,CursorLine:PmenuSel,Search:None,CmpItemKind:Type,CmpItemAbbrMatch:Identifier",
+          minwidth = 60,
+      }),
+      documentation = cmp.config.window.bordered({
+          border = "rounded",
+          winhighlight = "Normal:Normal,CursorLine:PmenuSel,Search:None",
+      }),
   },
   formatting = {
-    format = require('lspkind').cmp_format({
-      mode = "symbol_text", -- options: "text_symbol" | "symbol_text"
-      menu = ({
-        buffer        = "[Buffer]",
-        nvim_lsp      = "[LSP]",
-        nvim_lua      = "[Lua]",
-        path          = "[Path]",
-        treesitter    = "[Tree]",
+      format = require('lspkind').cmp_format({
+          mode = "symbol_text",
       })
-    })
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),

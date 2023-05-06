@@ -73,6 +73,9 @@ return require('packer').startup(function(use)
             vim.g.floaterm_width = 0.8
             vim.g.floaterm_height = 0.9
             vim.g.floaterm_position = 'bottom'
+            vim.cmd([[
+            hi! link FloatermBorder Comment
+            ]])
         end
     }
 
@@ -94,14 +97,18 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
-    -- lsp
+    -- Builtin LSP
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
+
+    -- Auto completion
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path' 
+    use 'hrsh7th/cmp-cmdline'
+
     use 'onsails/lspkind.nvim' -- icons in autocomplete source
-    use 'hrsh7th/nvim-cmp' -- autocomplete engine (see autocomplete.lua)
-    use 'hrsh7th/cmp-nvim-lsp' -- LSP source for cmp
-    use 'hrsh7th/cmp-buffer' -- buffer source for cmp
-    use 'hrsh7th/cmp-path' -- path source for cmp
 
     -- lspsaga
     use 'tami5/lspsaga.nvim'
