@@ -6,6 +6,10 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     use 'rcarriga/nvim-notify'
 
+    -- Theme
+    use {'dracula/vim', as = 'dracula'}
+    use {'hardhackerlabs/theme-vim',  as = 'hardhacker'}
+
     -- Starting screen
     use {
         'glepnir/dashboard-nvim',
@@ -81,6 +85,9 @@ return require('packer').startup(function(use)
         end
     }
 
+    -- Git diff
+    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+
     -- Status line
     use {
         'nvim-lualine/lualine.nvim',
@@ -153,11 +160,7 @@ return require('packer').startup(function(use)
         end
     }
 
-    -- Theme
-    use {'dracula/vim', as = 'dracula'}
-    use {'hardhackerlabs/theme-vim',  as = 'hardhacker'}
-
-    -- Buffer management
+    -- Tab management
     use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
 
     -- File find and search.

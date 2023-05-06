@@ -16,7 +16,7 @@ bufferline.setup {
         offsets = {
             {
                 filetype = "NvimTree",
-                text = " 📂 File Explorer",
+                text = " 📂 FILE EXPLORER",
                 text_align = "left",
                 separator = true,
             }

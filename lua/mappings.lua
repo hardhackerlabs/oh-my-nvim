@@ -10,7 +10,7 @@ map('n', '<C-j>', '<C-W>j', opt)
 map('n', '<C-k>', '<C-W>k', opt)
 map('n', '<C-l>', '<C-W>l', opt)
 
--- Use <leader>b shortcut to pick a buffer.
+-- Use <leader>b shortcut to pick a buffer tab.
 -- Supported by bufferline
 map('n', '<leader>b', ':BufferLinePick<CR>', opt)
 
@@ -33,3 +33,7 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fs', builtin.grep_string, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 
+-- Use <leader>dv shortcut to open 'git diff'.
+-- Use <leader>dc shortcut to close 'git diff'.
+map('n', '<leader>dv', ':DiffviewOpen<CR>', opt)
+map('n', '<leader>dc', ':DiffviewClose<CR>', opt)
