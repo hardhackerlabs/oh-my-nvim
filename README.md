@@ -14,13 +14,12 @@ A handy, pretty, modern nvim configuration with integrated cool, useful plugins.
 * Colors highlighting
 * Git integration
 * Git diff view
-* Tab
+* Tab line
 * Icons
 * Pretty status line
 * Markdown Preview via your browser
 * Starting screen
 * Quick resize the window
-
 * Convenient customization of frequently used shortcuts
 
 ## 🚧 Install
