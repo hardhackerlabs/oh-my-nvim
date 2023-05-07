@@ -30,11 +30,11 @@ return {
     -- Use '<leader>dc' shortcut to close 'git diff'.
     diff_close          = "<leader>dc",
 
-    -- Use 'shift + alt + hjkl' shortcut to resize the window
-    resize_left         = "<S-A-h>", 
-    resize_down         = "<S-A-j>",
-    resize_up           = "<S-A-k>",
-    resize_right        = "<S-A-l>",
+    -- Use 'control + alt + hjkl' shortcut to resize the window
+    resize_left         = "<C-A-h>", 
+    resize_down         = "<C-A-j>",
+    resize_up           = "<C-A-k>",
+    resize_right        = "<C-A-l>",
 
     -- TODO:
     --goto_back           = "<C-o>",

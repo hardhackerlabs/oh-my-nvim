@@ -1,88 +1,48 @@
-HOME = os.getenv("HOME")
+local keys = require("custom_keys")
+local opts = require("custom_opts")
 
-vim.g.python3_host_prog = "/usr/bin/python3"
+local map = vim.keymap.set
+local opts = {noremap = true, silent = true }
 
-vim.opt.termguicolors = true
-vim.opt.cursorline = true
-vim.opt.updatetime = 300
+map('n', keys.jump_left_window, '<C-W>h', opts)
+map('n', keys.jump_down_window, '<C-W>j', opts)
+map('n', keys.jump_up_window, '<C-W>k', opts)
+map('n', keys.jump_right_window, '<C-W>l', opts)
 
--- Basic settings
-vim.opt.encoding = "utf-8"
-vim.opt.backspace = "indent,eol,start" -- backspace works on every char in insert mode
-vim.opt.completeopt = 'menuone,noselect'
-vim.opt.history = 1000
-vim.opt.startofline = true
+-- Supported by bufferline
+map('n', keys.pick_tab, ':BufferLinePick<CR>', opts)
 
--- Mapping waiting time
-vim.opt.timeout = false
-vim.opt.ttimeout = true
-vim.opt.ttimeoutlen = 100
+-- Supported by nvim-tree
+map('n', keys.file_explorer, ':NvimTreeToggle<CR>', opts)
 
--- Display
-vim.opt.scrolloff = 3
-vim.opt.showmatch = true
-vim.opt.synmaxcol = 300
-vim.opt.laststatus = 2
+-- Supported by floaterm
+if (opts.terminal_style == "float")
+then 
+    -- TODO
+elseif (opts.terminal_style == "bottom")
+then
+    -- TODO
+    -- vim.cmd('FloatermNew --silent --height=0.5 --wintype=split --name=default --position=botright')
+else
+    -- TODO:
+end
 
-vim.opt.list = false -- do not display white characters
-vim.opt.foldenable = false
-vim.opt.foldlevel = 4 -- limit folding to 4 levels
-vim.opt.foldmethod = 'syntax' -- use language syntax to generate folds
-vim.opt.wrap = false --do not wrap lines even if very long
-vim.opt.eol = false -- show if there's no eol char
-vim.opt.showbreak= '↪' -- character to show when line is broken
+map('n', keys.terminal, ':FloatermToggle<CR>', opts)
+map('t', keys.terminal, '<C-\\><C-n>:FloatermToggle<CR>', opts)
 
--- Sidebar
-vim.opt.number = true -- line number on the left
-vim.opt.numberwidth = 3 -- always reserve 3 spaces for line number
-vim.opt.signcolumn = 'yes' -- keep 1 column for coc.vim  check
-vim.opt.modelines = 0
-vim.opt.showcmd = true -- display command in bottom bar
+-- Supported by telescope
+local builtin = require('telescope.builtin')
+map('n', keys.find_files, builtin.find_files, opts)
+map('n', keys.live_grep, builtin.live_grep, opts)
+map('n', keys.search_cursor, builtin.grep_string, opts)
+map('n', keys.find_buffer, builtin.buffers, opts)
 
--- Search
-vim.opt.incsearch = true -- starts searching as soon as typing, without enter needed
-vim.opt.ignorecase = true -- ignore letter case when searching
-vim.opt.smartcase = true -- case insentive unless capitals used in search
+-- Supported by diffview
+map('n', keys.diff_open, ':DiffviewOpen<CR>', opts)
+map('n', keys.diff_close, ':DiffviewClose<CR>', opts)
 
-vim.opt.matchtime = 2 -- delay before showing matching paren
-vim.opt.mps = vim.o.mps .. ",<:>"
-
--- White characters
-vim.opt.autoindent = true
-vim.opt.smartindent = true
-vim.opt.tabstop = 4 
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4 -- indentation rule
-vim.opt.formatoptions = 'qnj1' -- q  - comment formatting; n - numbered lists; j - remove comment when joining lines; 1 - don't break after one-letter word
-vim.opt.expandtab = true -- expand tab to spaces
-
--- Backup files
-vim.opt.backup = false 
-vim.opt.writebackup = false
-vim.opt.swapfile = false -- do not use swap file
-
--- Commands mode
-vim.opt.wildmenu = true -- on TAB, complete options for system command
-vim.opt.wildignore = 'deps,.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc'
-
--- Only show cursorline in the current window and in normal mode.
--- vim.cmd([[
---   augroup cline
---       au!
---       au WinLeave * set nocursorline
---       au WinEnter * set cursorline
---       au InsertEnter * set nocursorline
---       au InsertLeave * set cursorline
---   augroup END
--- ]])
-
-vim.cmd([[
-    set noeb
-    set t_Co=256
-    filetype    plugin indent on
-    exec        "nohlsearch"
-    syntax      enable
-    syntax      on
-    " let g:hardhacker_darker = 1
-    colorscheme hardhacker
-]])
+-- Supported by smart-splits
+map({'n', 't'}, keys.resize_left, require('smart-splits').resize_left, opts)
+map({'n', 't'}, keys.resize_down, require('smart-splits').resize_down, opts)
+map({'n', 't'}, keys.resize_up, require('smart-splits').resize_up, opts)
+map({'n', 't'}, keys.resize_right, require('smart-splits').resize_right, opts)

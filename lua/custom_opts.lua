@@ -1,6 +1,7 @@
 return {
     file_explorer_title = " 📂 FILE EXPLORER",
     tab_style           = "slant", -- options: thin, thick, slope, slant
+    terminal_style      = "bottom", -- options: float
 
     -- Starting screen header.
     home_header = {
