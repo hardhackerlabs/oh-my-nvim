@@ -22,15 +22,28 @@ A handy, pretty, modern nvim configuration with integrated cool, useful plugins.
 * Quick resize the window
 * Convenient customization of frequently used shortcuts
 
+## Requirements
+
+TODO
+
 ## 🚧 Install
 
-### Pre-install
+### MacOS/Linux
 
-TODO
+#### Backup your current nvim
 
-### Install oh-my-nvim
+```
+mv ~/.config/nvim       ~/.config/nvim.bak
+mv ~/.local/share/nvim  ~/.local/share/nvim.bak
+```
 
-TODO
+#### Clone oh-my-nvim repo
+
+```
+git clone https://github.com/skoowoo/oh-my-nvim.git ~/.config/nvim
+```
+
+#### Start `nvim` in your terminal, then automatically install and setup plugins
 
 ## ⌨️  Shortcut Keys
 
