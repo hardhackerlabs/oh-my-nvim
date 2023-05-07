@@ -1,4 +1,4 @@
-# 💎 oh-my-nvim
+# 💎 oh-my-nvim （Developing）
 
 A handy, pretty, modern nvim configuration with integrated cool, useful plugins.
 
