@@ -1,6 +1,8 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
+local opts = require("custom_opts")
+
 return require('packer').startup(function(use)
     -- packer
     use 'wbthomason/packer.nvim'
@@ -20,21 +22,12 @@ return require('packer').startup(function(use)
                 theme = 'hyper',
                 shortcut_type = 'number',
                 hide = {
-                    statusline =true,    -- hide statusline default is true
-                    tabline = true,       -- hide the tabline
-                    winbar = true,        -- hide winbar
+                    statusline =true, 
+                    tabline = true,  
+                    winbar = true,  
                 },
                 config = {
-                    header = {
-                        '                                                                                 ',  
-                        ' ██╗  ██╗ █████╗ ██████╗ ██████╗ ██╗  ██╗ █████╗  ██████╗██╗  ██╗███████╗██████╗ ',
-                        ' ██║  ██║██╔══██╗██╔══██╗██╔══██╗██║  ██║██╔══██╗██╔════╝██║ ██╔╝██╔════╝██╔══██╗',
-                        ' ███████║███████║██████╔╝██║  ██║███████║███████║██║     █████╔╝ █████╗  ██████╔╝',
-                        ' ██╔══██║██╔══██║██╔══██╗██║  ██║██╔══██║██╔══██║██║     ██╔═██╗ ██╔══╝  ██╔══██╗',
-                        ' ██║  ██║██║  ██║██║  ██║██████╔╝██║  ██║██║  ██║╚██████╗██║  ██╗███████╗██║  ██║',
-                        ' ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝',
-                        '                                                                                 ',
-                    },
+                    header = opts.home_header,
                     project = { enable = false },
                     mru = { limit = 9 },
                     shortcut = {
@@ -51,11 +44,7 @@ return require('packer').startup(function(use)
                             key = 'S',
                         },
                     },
-                    footer = {
-                        '',
-                        '',
-                        '🚀 Hardhacker do hard things.',
-                    },
+                    footer = opts.home_footer,
                 },
             }
 
@@ -133,7 +122,7 @@ return require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         config = function()
             require'nvim-treesitter.configs'.setup {
-                ensure_installed = { "c", "lua", "go", "javascript", "markdown", "html", "css", "bash", "python" },
+                ensure_installed = { "c", "lua", "go", "javascript", "markdown", "html", "css", "bash", "python", "rust" },
                 sync_install = false,
                 auto_install = true,
                 ignore_install = { },
@@ -221,4 +210,7 @@ return require('packer').startup(function(use)
             }
         end,
     }
+
+    -- resize the window
+    use({ 'mrjones2014/smart-splits.nvim', tag = 'v1.2.2' })
 end)

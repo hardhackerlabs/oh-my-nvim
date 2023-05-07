@@ -19,15 +19,15 @@ A handy, pretty, modern nvim configuration with integrated cool, useful plugins.
 * Pretty status line
 * Markdown Preview via your browser
 * Starting screen
+* Quick resize the window
+
+* Convenient customization of frequently used shortcuts
 
 ## 🚧 Install
 
 ### Pre-install
 
-```
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-```
+TODO
 
 ### Install oh-my-nvim
 

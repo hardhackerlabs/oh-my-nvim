@@ -1,39 +1,36 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = '\\'
+local keys = require("custom_keys")
 
-local map = vim.api.nvim_set_keymap
-local opt = {noremap = true, silent = true }
+local map = vim.keymap.set
+local opts = {noremap = true, silent = true }
 
--- Use 'control + hjkl' shortcut to switch/jump window.
-map('n', '<C-h>', '<C-W>h', opt)
-map('n', '<C-j>', '<C-W>j', opt)
-map('n', '<C-k>', '<C-W>k', opt)
-map('n', '<C-l>', '<C-W>l', opt)
+map('n', keys.jump_left_window, '<C-W>h', opts)
+map('n', keys.jump_down_window, '<C-W>j', opts)
+map('n', keys.jump_up_window, '<C-W>k', opts)
+map('n', keys.jump_right_window, '<C-W>l', opts)
 
--- Use <leader>b shortcut to pick a buffer tab.
 -- Supported by bufferline
-map('n', '<leader>b', ':BufferLinePick<CR>', opt)
+map('n', keys.pick_tab, ':BufferLinePick<CR>', opts)
 
--- Use the F9 shortcut to open or close file explorer.
 -- Supported by nvim-tree
-map('n', '<F9>', ':NvimTreeToggle<CR>', opt)
+map('n', keys.file_explorer, ':NvimTreeToggle<CR>', opts)
 
--- Use the F12 shortcut to open or close the terminal.
 -- Supported by floaterm
-map('n', '<F12>', ':FloatermToggle<CR>', opt)
-map('t', '<F12>', '<C-\\><C-n>:FloatermToggle<CR>', opt)
+map('n', keys.terminal, ':FloatermToggle<CR>', opts)
+map('t', keys.terminal, '<C-\\><C-n>:FloatermToggle<CR>', opts)
 
--- Use '<leader>ff, fg, fs' shortcut to find and search files.
--- Use the 'control + c' to close telescope window. <C-c> is the default setting.
 -- Supported by telescope
 local builtin = require('telescope.builtin')
+map('n', keys.find_files, builtin.find_files, opts)
+map('n', keys.live_grep, builtin.live_grep, opts)
+map('n', keys.search_cursor, builtin.grep_string, opts)
+map('n', keys.find_buffer, builtin.buffers, opts)
 
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fs', builtin.grep_string, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+-- Supported by diffview
+map('n', keys.diff_open, ':DiffviewOpen<CR>', opts)
+map('n', keys.diff_close, ':DiffviewClose<CR>', opts)
 
--- Use <leader>dv shortcut to open 'git diff'.
--- Use <leader>dc shortcut to close 'git diff'.
-map('n', '<leader>dv', ':DiffviewOpen<CR>', opt)
-map('n', '<leader>dc', ':DiffviewClose<CR>', opt)
+-- Supported by smart-splits
+map('n', keys.resize_left, require('smart-splits').resize_left, opts)
+map('n', keys.resize_down, require('smart-splits').resize_down, opts)
+map('n', keys.resize_up, require('smart-splits').resize_up, opts)
+map('n', keys.resize_right, require('smart-splits').resize_right, opts)

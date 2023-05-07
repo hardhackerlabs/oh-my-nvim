@@ -1,3 +1,4 @@
+local opts = require("custom_opts")
 local bufferline = require('bufferline')
 bufferline.setup {
     options = {
@@ -16,13 +17,13 @@ bufferline.setup {
         offsets = {
             {
                 filetype = "NvimTree",
-                text = " 📂 FILE EXPLORER",
+                text = opts.file_explorer_title,
                 text_align = "left",
                 separator = true,
             }
         },
         color_icons = true, -- whether or not to add the filetype icon highlights
-        separator_style = "slope",
+        separator_style = opts.tab_style,
         hover = {
             enabled = true,
             delay = 200,
