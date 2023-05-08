@@ -6,7 +6,7 @@
     oh-my-nvim 
 </h1>
 
-**A handy, pretty, modern nvim configuration with integrated cool and useful plugins 💎**
+**A handy, pretty, modern neovim configuration with integrated cool and useful plugins 💎**
 
 ## 📦 Features
 
@@ -75,13 +75,17 @@ Use command `:TSInstall` to download and install a parser, .e.g `:TSInstall rust
 
 ## ⌨️  Shortcut Keys
 
-[View the default shortcut settings](https://github.com/hardhackerlabs/oh-my-nvim/blob/main/lua/custom_keys.lua)
+[👉 View the default shortcut settings](https://github.com/hardhackerlabs/oh-my-nvim/blob/main/lua/custom_keys.lua)
 
 You can edit the default settings of the shortcut keys in this configuration file (`~/.config/nvim/lua/custom_keys.lua`).
 
+## 💖 Recommendations for Neovim GUI
+
+* [Neovide](https://neovide.dev/) (Developed by rust)
+
 ## 🧩 Plugins
 
-* [packer](https://github.com/wbthomason/packer.nvim) (Plugin manager)
+* [packer](https://github.com/wbthomason/packer.nvim) (Plugin manager, might migrate to lazy in the future)
 * [hardhacker-theme](https://github.com/hardhackerlabs/theme-vim)
 * [nvim-notify](https://github.com/rcarriga/nvim-notify)
 * [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
@@ -107,3 +111,4 @@ You can edit the default settings of the shortcut keys in this configuration fil
 * [smart-splits.nvim](https://github.com/mrjones2014/smart-splits.nvim)
 * [rust.vim](https://github.com/rust-lang/rust.vim)
 * [vim-go](https://github.com/fatih/vim-go)
+
