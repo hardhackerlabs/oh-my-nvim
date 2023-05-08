@@ -61,6 +61,8 @@ git clone https://github.com/hardhackerlabs/oh-my-nvim.git ~/.config/nvim
 
 #### 2️⃣  Start `nvim` in your terminal, then automatically install and setup all plugins
 
+#### 3️⃣  Restart `nvim` and enjoy it 🍻 
+
 ## 🧱 Languages
 
 #### Install LSP Server
