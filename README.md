@@ -56,7 +56,7 @@ mv ~/.local/share/nvim  ~/.local/share/nvim.bak
 #### 1️⃣  Clone oh-my-nvim repo
 
 ```
-git clone https://github.com/skoowoo/oh-my-nvim.git ~/.config/nvim
+git clone https://github.com/hardhackerlabs/oh-my-nvim.git ~/.config/nvim
 ```
 
 #### 2️⃣  Start `nvim` in your terminal, then automatically install and setup all plugins
@@ -73,7 +73,7 @@ Use command `:TSInstall` to download and install a parser, .e.g `:TSInstall rust
 
 ## ⌨️  Shortcut Keys
 
-[View the default shortcut settings](https://github.com/skoowoo/oh-my-nvim/blob/main/lua/custom_keys.lua)
+[View the default shortcut settings](https://github.com/hardhackerlabs/oh-my-nvim/blob/main/lua/custom_keys.lua)
 
 You can edit the default settings of the shortcut keys in this configuration file (`~/.config/nvim/lua/custom_keys.lua`).
 
