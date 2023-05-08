@@ -61,6 +61,16 @@ git clone https://github.com/skoowoo/oh-my-nvim.git ~/.config/nvim
 
 #### 2️⃣  Start `nvim` in your terminal, then automatically install and setup all plugins
 
+## 🧱 Languages
+
+#### Install LSP Server
+
+Use command `:LspInstall` to download and install a server, .e.g `:LspInstall rust-analyzer`.
+
+#### Install TreeSitter Parser
+
+Use command `:TSInstall` to download and install a parser, .e.g `:TSInstall rust`.
+
 ## ⌨️  Shortcut Keys
 
 [View the default shortcut settings](https://github.com/skoowoo/oh-my-nvim/blob/main/lua/custom_keys.lua)
