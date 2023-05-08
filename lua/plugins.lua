@@ -11,61 +11,28 @@ end
 
 local packer_bootstrap = ensure_packer() 
 
+--
+
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
-
-local opts = require("custom_opts")
 
 return require('packer').startup(function(use)
     -- packer
     use 'wbthomason/packer.nvim'
     use 'rcarriga/nvim-notify'
 
+    use {'nvim-tree/nvim-web-devicons', config = function() require('nvim-web-devicons/config')() end}
+
     -- Theme
     use {'dracula/vim', as = 'dracula'}
-    use {'hardhackerlabs/theme-vim',  as = 'hardhacker'}
+    use {'hardhackerlabs/theme-vim',  as = 'hardhacker', config = function() vim.cmd('colorscheme hardhacker') end}
 
     -- Starting screen
     use {
         'glepnir/dashboard-nvim',
         requires = {'nvim-tree/nvim-web-devicons'},
         event = 'VimEnter',
-        config = function()
-            require('dashboard').setup {
-                theme = 'hyper',
-                shortcut_type = 'number',
-                hide = {
-                    statusline =true, 
-                    tabline = true,  
-                    winbar = true,  
-                },
-                config = {
-                    header = opts.home_header,
-                    project = { enable = false },
-                    mru = { limit = 9 },
-                    shortcut = {
-                        {
-                            desc = ' Update',
-                            group = 'HardHackerPurple',
-                            action = 'PackerUpdate',
-                            key = 'U' 
-                        },
-                        {
-                            desc = ' Setup',
-                            group = 'HardHackerCyan',
-                            action = 'e ~/.config/nvim/init.lua',
-                            key = 'S',
-                        },
-                    },
-                    footer = opts.home_footer,
-                },
-            }
-
-            vim.cmd([[
-            hi! link DashboardHeader  HardHackerRed
-            hi! link DashboardFooter  HardHackerGeen
-            ]])
-        end
+        config = function() require('dashboard-nvim/config')() end,
     }
 
     -- Terminal
@@ -96,15 +63,23 @@ return require('packer').startup(function(use)
     -- Status line
     use {
         'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+        config = function() require('lualine/config')() end,
     }
 
     -- Builtin LSP
-    use 'neovim/nvim-lspconfig'
-    use 'williamboman/nvim-lsp-installer'
+    use {'neovim/nvim-lspconfig', config = function() require('lspconfig/config')() end}
+    use { 'williamboman/nvim-lsp-installer',
+        config = function()
+            require('nvim-lsp-installer').on_server_ready(function(server)
+                local opts = { }
+                server:setup(opts)
+                vim.cmd([[ do User LspAttach Buffers ]])
+            end)
+    end}
 
     -- Auto completion
-    use 'hrsh7th/nvim-cmp'
+    use {'hrsh7th/nvim-cmp', config = function() require('autocmp/config')() end}
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path' 
@@ -113,29 +88,31 @@ return require('packer').startup(function(use)
     use 'onsails/lspkind.nvim' -- icons in autocomplete source
 
     -- lspsaga
-    use 'tami5/lspsaga.nvim'
-    require('lspsaga').init_lsp_saga {
-	    error_sign = '!',
-	    warn_sign = '^',
-	    hint_sign = '?',
-	    infor_sign = '~',
-	    border_style = "round",
-	    code_action_prompt = {
-		    enable = false
-	    }
-    }
+    use { 'tami5/lspsaga.nvim',
+    config = function()
+        require('lspsaga').init_lsp_saga {
+            error_sign = '!',
+            warn_sign = '^',
+            hint_sign = '?',
+            infor_sign = '~',
+            border_style = "round",
+            code_action_prompt = {
+                enable = false
+            }
+        }
+    end}
 
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-        vim.lsp.diagnostic.on_publish_diagnostics, {
-            virtual_text = false
-    })
-
+--    -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+--    --     vim.lsp.diagnostic.on_publish_diagnostics, {
+--    --         virtual_text = false
+--    -- })
+--
     -- Syntax highlighting
     use {
         'nvim-treesitter/nvim-treesitter',
         config = function()
             require'nvim-treesitter.configs'.setup {
-                ensure_installed = { "c", "lua", "go", "javascript", "markdown", "html", "css", "bash", "python", "rust" },
+                ensure_installed = { },
                 sync_install = false,
                 auto_install = true,
                 ignore_install = { },
@@ -170,7 +147,42 @@ return require('packer').startup(function(use)
     }
 
     -- Tab management
-    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
+    use {'akinsho/bufferline.nvim', tag = "v4.1.0", requires = 'nvim-tree/nvim-web-devicons',
+    config = function()
+        local bufferline = require('bufferline')
+        bufferline.setup {
+            options = {
+                mode = "buffers", -- set to "tabs" to only show tabpages instead
+                style_preset = bufferline.style_preset.default, -- or bufferline.style_preset.minimal,
+                themable = true, -- allows highlight groups to be overriden i.e. sets highlights as default
+                numbers = function(opts)
+                    return string.format('%s·%s', opts.raise(opts.id), opts.lower(opts.ordinal))
+                end,
+                indicator = {
+                    icon = '▎', -- this should be omitted if indicator style is not 'icon'
+                    style = 'icon',
+                },
+                diagnostics = "nvim_lsp",
+                diagnostics_update_in_insert = false,
+                offsets = {
+                    {
+                        filetype = "NvimTree",
+                        text = require('custom_opts').file_explorer_title,
+                        text_align = "left",
+                        separator = true,
+                    }
+                },
+                color_icons = true, -- whether or not to add the filetype icon highlights
+                separator_style = require('custom_opts').tab_style,
+                hover = {
+                    enabled = true,
+                    delay = 200,
+                    reveal = {'close'},
+                },
+            }
+        }
+    end,
+    }
 
     -- File find and search.
     use {
@@ -178,7 +190,16 @@ return require('packer').startup(function(use)
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
         config = function()
             require'telescope'.setup{}
-        end
+
+            local option = {noremap = true, silent = true }
+
+            local keys = require("custom_keys")
+            local builtin = require('telescope.builtin')
+            vim.keymap.set('n', keys.find_files, builtin.find_files, option)
+            vim.keymap.set('n', keys.live_grep, builtin.live_grep, option)
+            vim.keymap.set('n', keys.search_cursor, builtin.grep_string, option)
+            vim.keymap.set('n', keys.find_buffer, builtin.buffers, option)
+        end,
     }
 
     -- File explorer
@@ -225,7 +246,7 @@ return require('packer').startup(function(use)
     }
 
     -- resize the window
-    use({ 'mrjones2014/smart-splits.nvim', tag = 'v1.2.2' })
+    use({'mrjones2014/smart-splits.nvim', tag = 'v1.2.2', config = function() require('smart-split/config')() end })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
