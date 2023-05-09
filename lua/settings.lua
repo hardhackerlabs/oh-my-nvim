@@ -15,22 +15,10 @@ map('n', keys.pick_tab, ':BufferLinePick<CR>', option)
 -- Supported by nvim-tree
 map('n', keys.file_explorer, ':NvimTreeToggle<CR>', option)
 
--- Supported by floaterm
-if (opts.terminal_style == "float")
-then 
-
-elseif (opts.terminal_style == "bottom")
-then
-    -- vim.cmd('FloatermNew --silent --height=0.5 --wintype=split --name=default --position=botright')
-else
-
-end
-
-map('n', keys.terminal, ':FloatermToggle<CR>', option)
-map('t', keys.terminal, '<C-\\><C-n>:FloatermToggle<CR>', option)
-
-
 -- Supported by diffview
 map('n', keys.diff_open, ':DiffviewOpen<CR>', option)
 map('n', keys.diff_close, ':DiffviewClose<CR>', option)
 
+-- Supported by floaterm
+map('n', keys.terminal, ':FloatermToggle<CR>', option)
+map('t', keys.terminal, '<C-\\><C-n>:FloatermToggle<CR>', option)

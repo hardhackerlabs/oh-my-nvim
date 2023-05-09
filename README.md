@@ -3,8 +3,12 @@
 </p>
 
 <h1 align="center">
-    oh-my-nvim 
+    oh-my-nvim<br/>
+  <a href="https://discord.com/invite/MGmp9QjfkK">
+    <img src="https://img.shields.io/discord/1095552215944527962?style=for-the-badge&logo=discord&color=e965a5&logoColor=eee9fc&labelColor=282433"/>
+  </a>
 </h1>
+
 
 **A handy, pretty, modern neovim configuration with integrated cool and useful plugins 💎**
 
@@ -67,11 +71,11 @@ git clone https://github.com/hardhackerlabs/oh-my-nvim.git ~/.config/nvim
 
 #### Install LSP Server
 
-Use command `:LspInstall` to download and install a server, .e.g `:LspInstall rust-analyzer`.
+Use command `:LspInstall` to download and install a server, e.g. `:LspInstall rust-analyzer`.
 
 #### Install TreeSitter Parser
 
-Use command `:TSInstall` to download and install a parser, .e.g `:TSInstall rust`.
+Use command `:TSInstall` to download and install a parser, e.g. `:TSInstall rust`.
 
 ## ⌨️  Shortcut Keys
 
