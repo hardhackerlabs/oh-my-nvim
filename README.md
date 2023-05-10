@@ -71,7 +71,7 @@ git clone https://github.com/hardhackerlabs/oh-my-nvim.git ~/.config/nvim
 
 #### Install LSP Server
 
-Use command `:LspInstall` to download and install a server, e.g. `:LspInstall rust-analyzer`.
+Use command `:LspInstall` to download and install a server, e.g. `:LspInstall rust_analyzer`.
 
 #### Install TreeSitter Parser
 
