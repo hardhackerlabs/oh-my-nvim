@@ -1,6 +1,3 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = '\\'
-
 return {
     -- Use 'control + hjkl' shortcut to switch/jump window.
     jump_left_window    = "<C-h>", 

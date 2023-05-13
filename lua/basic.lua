@@ -12,7 +12,6 @@ vim.opt.backspace = "indent,eol,start" -- backspace works on every char in inser
 vim.opt.completeopt = 'menuone,noselect'
 vim.opt.history = 1000
 vim.opt.startofline = true
-
 -- Mapping waiting time
 vim.opt.timeout = false
 vim.opt.ttimeout = true

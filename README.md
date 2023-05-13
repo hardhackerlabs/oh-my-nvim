@@ -89,7 +89,7 @@ You can edit the default settings of the shortcut keys in this configuration fil
 
 ## 🧩 Plugins
 
-* [packer](https://github.com/wbthomason/packer.nvim) (Plugin manager, might migrate to lazy in the future)
+* [lazy.nvim](https://github.com/folke/lazy.nvim) (Plugin manager)
 * [hardhacker-theme](https://github.com/hardhackerlabs/theme-vim)
 * [nvim-notify](https://github.com/rcarriga/nvim-notify)
 * [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
