@@ -40,4 +40,4 @@ luac.out
 *.hex
 
 
-plugin
+lazy-lock.json
