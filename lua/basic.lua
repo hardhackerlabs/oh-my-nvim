@@ -1,7 +1,5 @@
 HOME = os.getenv("HOME")
 
-vim.g.python3_host_prog = "/usr/bin/python3"
-
 vim.opt.termguicolors = true
 vim.opt.cursorline = true
 vim.opt.updatetime = 300
