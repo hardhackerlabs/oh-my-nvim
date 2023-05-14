@@ -10,7 +10,7 @@ map('n', keys.jump_up_window, '<C-W>k', option)
 map('n', keys.jump_right_window, '<C-W>l', option)
 
 -- Supported by bufdelete
-vim.cmd([[cnoreabbrev q Bdelete]])
+-- vim.cmd([[cnoreabbrev q Bdelete]])
 
 -- Supported by bufferline
 map('n', keys.pick_tab, ':BufferLinePick<CR>', option)
