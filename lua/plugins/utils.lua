@@ -7,4 +7,7 @@ return {
         version = 'v1.2.2',
         config = function() require('plugins/smart-split/config')() end
     },
+
+    -- buffer delete
+    {'famiu/bufdelete.nvim'}
 }

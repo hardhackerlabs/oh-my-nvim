@@ -39,11 +39,16 @@ return {
     resize_up           = "<C-A-k>",
     resize_right        = "<C-A-l>",
 
-    -- TODO:
-    --goto_back           = "<C-o>",
+    -- Goto
     goto_definition     = "gd",
+    goto_references     = "gr",
     goto_declaration    = "gD",
     goto_impl           = "gi",
-    goto_references     = "gr",
+    -- goto_back           = "<C-o>",
+
+    -- Use the '<leader>rn' shortcut to rename the code symbols.
     lsp_rename          = "<leader>rn",
+
+    -- Use the '<leader>fm' shortcut to format your codes.
+    format              = "<leader>fm",
 }

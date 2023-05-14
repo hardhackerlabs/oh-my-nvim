@@ -109,10 +109,11 @@ You can edit the default settings of the shortcut keys in this configuration fil
 * [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 * [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 * [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-* [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)
+* [neo-tree.lua](https://github.com/nvim-neo-tree/neo-tree.nvim)
 * [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
 * [nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua)
 * [smart-splits.nvim](https://github.com/mrjones2014/smart-splits.nvim)
 * [rust.vim](https://github.com/rust-lang/rust.vim)
 * [vim-go](https://github.com/fatih/vim-go)
+* [bufdelete](https://github.com/famiu/bufdelete.nvim)
 
