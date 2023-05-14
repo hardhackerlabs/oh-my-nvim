@@ -18,17 +18,16 @@
 * File find and search
 * Float terminal
 * LSP
-* Pretty code highlighting
+* Pretty code highlighting, Colors highlighting
 * Auto completion
 * Languages
-* Colors highlighting
 * Git integration
 * Git diff view
-* Pretty Tab line & Status line
+* Pretty Tab line, Status line
 * Markdown Preview via your browser
 * Starting screen
 * Quick resize the window
-* Convenient customization of frequently used shortcuts
+* Customization of frequently used shortcuts
 * ...
 
 ## 🎆 Preview
@@ -36,6 +35,7 @@
 ![](./docs/images/start-screen.png)
 ![](./docs/images/autocmp.png)
 ![](./docs/images/float-term.png)
+![](./docs/images/find.png)
 ![](./docs/images/color-highlight.png)
 
 
