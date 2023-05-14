@@ -1,6 +1,15 @@
 return function()
-    local keys = require("custom_keys")
+    require('smart-splits').setup({
+        ignored_filetypes = {
+            'nofile',
+            'quickfix',
+            'prompt',
+            'neo-tree',
+        },
+        ignored_buftypes = { 'NvimTree', 'neo-tree' },
+    })
 
+    local keys = require("custom_keys")
     local opttion = {noremap = true, silent = true }
 
     vim.keymap.set({'n', 't'}, keys.resize_left, require('smart-splits').resize_left, option)

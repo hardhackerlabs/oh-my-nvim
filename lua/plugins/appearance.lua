@@ -1,4 +1,24 @@
 return {
+    -- Status line
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
+        config = function() require('plugins/lualine/config')() end,
+    },
+
+    -- File explorer
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
+        dependencies = { 
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+        },
+        config = function() require('plugins/neo-tree/config')() end,
+    }, 
+
+    -- Tab line
     {
         'akinsho/bufferline.nvim', 
         version = "v4.1.0", 
@@ -21,7 +41,7 @@ return {
                     diagnostics_update_in_insert = false,
                     offsets = {
                         {
-                            filetype = "NvimTree",
+                            filetype = "neo-tree",
                             text = require('custom_opts').file_explorer_title,
                             text_align = "left",
                             separator = true,
@@ -39,3 +59,4 @@ return {
         end,
     },
 }
+
