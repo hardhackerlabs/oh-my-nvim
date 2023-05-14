@@ -11,8 +11,8 @@ return {
     -- Use the 'F9' shortcut to open or close file explorer.
     file_explorer       = "<F9>",
 
-    -- Use the 'F8' shortcut to open or close code symbols, it need to call the lsp server.
-    code_symbols        = "<F8>",
+    -- Use the 'F8' shortcut to open or close the outline, it need to call the lsp server.
+    outline             = "<F8>",
 
     -- Use the 'F7' shortcut to open or close git status on a float window.
     git_status          = "<F7>",

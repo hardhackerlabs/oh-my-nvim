@@ -18,6 +18,18 @@ return {
         config = function() require('plugins/neo-tree/config')() end,
     }, 
 
+    -- outline
+    {
+        'stevearc/aerial.nvim',
+        opts = {},
+        -- Optional dependencies
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-tree/nvim-web-devicons"
+        },
+        config = function() require('aerial').setup() end,
+    },
+
     -- Tab line
     {
         'akinsho/bufferline.nvim', 

@@ -44,7 +44,11 @@
 * Neovim 0.8+
 * Not required, but recommended
     * [nerd font](https://www.nerdfonts.com/font-downloads) 
+        * JetBrainsMono Nerd Font
+        * Victor Mono Nerd Font
+        * ...
     * [ripgrep](https://github.com/BurntSushi/ripgrep) 
+    * [fd](https://github.com/sharkdp/fd)
 
 ## 🚧 Install
 
@@ -116,4 +120,5 @@ You can edit the default settings of the shortcut keys in this configuration fil
 * [rust.vim](https://github.com/rust-lang/rust.vim)
 * [vim-go](https://github.com/fatih/vim-go)
 * [bufdelete](https://github.com/famiu/bufdelete.nvim)
+* [aerial](https://github.com/stevearc/aerial.nvim)
 
