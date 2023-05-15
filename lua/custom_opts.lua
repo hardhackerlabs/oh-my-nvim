@@ -20,6 +20,6 @@ return {
     home_footer = {
         '',
         '',
-        '🚀 Hardhacker do hard things.',
+        '☛ Hardhacker do hard things.',
     },
 }

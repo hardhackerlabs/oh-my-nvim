@@ -44,8 +44,8 @@
 * Neovim 0.8+
 * Not required, but recommended
     * [nerd font](https://www.nerdfonts.com/font-downloads) 
-        * JetBrainsMono Nerd Font
         * Victor Mono Nerd Font
+        * JetBrainsMono Nerd Font
         * ...
     * [ripgrep](https://github.com/BurntSushi/ripgrep) 
     * [fd](https://github.com/sharkdp/fd)
@@ -90,6 +90,25 @@ You can edit the default settings of the shortcut keys in this configuration fil
 ## 💖 Recommendations for Neovim GUI
 
 * [Neovide](https://neovide.dev/) (Developed by rust)
+
+## 🏠 Add the plugins you want
+
+If you want to add your own plugins, you can create a `my.lua` file in the directory `~/.config/nvim/lua/plugins`. Setup the plugins in this file.
+
+The configuration of the plugins in the `my.lua` file can be found in the following template:
+
+```
+return {
+    -- Your Plugin1
+    {
+        'hardhacker/plugin1',
+        config = function() ... end
+    },
+
+    -- Your Plugin2
+    {'hardhacker/plugin2'},
+}
+```
 
 ## 🧩 Plugins
 
