@@ -27,8 +27,8 @@ map('n', keys.diff_open, ':DiffviewOpen<CR>', option)
 map('n', keys.diff_close, ':DiffviewClose<CR>', option)
 
 -- Supported by floaterm
-map('n', keys.terminal, ':FloatermToggle<CR>', option)
-map('t', keys.terminal, '<C-\\><C-n>:FloatermToggle<CR>', option)
+map('n', keys.terminal, ':ToggleTerm<CR>a', option)
+map('t', keys.terminal, '<C-\\><C-n>:ToggleTerm<CR>', option)
 
 
 -- Function to set up the save shortcut
