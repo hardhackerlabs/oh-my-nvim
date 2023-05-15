@@ -1,8 +1,9 @@
 return {
     file_explorer_title     = "💾 FILE EXPLORER",
-    tab_style               = "thin", -- options: thin, thick, slope, slant
-    terminal_style          = "float", -- options: float
+    tab_style               = "thin",               -- options: thin, thick, slope, slant
+    terminal_style          = "float",              -- options: float
     terminal_transparency   = 6,
+    terminal_size           = 0.7,
 
     -- Starting screen header.
     home_header = {

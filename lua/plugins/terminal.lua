@@ -1,20 +1,10 @@
 return {
---    {
---        'voldikss/vim-floaterm',
---        config = function()
---            vim.g.floaterm_width = 0.8
---            vim.g.floaterm_height = 0.9
---            vim.g.floaterm_position = 'bottom'
---            vim.cmd([[
---            hi! link FloatermBorder Comment
---            ]])
---        end
---    },
-
     {
         'akinsho/toggleterm.nvim',
         version = "*",
         config = function()
+            local copts = require('custom_opts')
+
             require("toggleterm").setup{
                 highlights = {
                     Normal = {
@@ -27,14 +17,20 @@ return {
                         link = 'Comment'
                     },
                 },
-                direction = require('custom_opts').terminal_style,
+                direction = copts.terminal_style,
                 float_opts = {
                     border = 'rounded',
-                    winblend = require('custom_opts').terminal_transparency,
+                    winblend = copts.terminal_transparency,
                     width = function(term)
-                            return 160
+                            local columns = vim.api.nvim_get_option("columns")
+                            local w = math.floor(columns * copts.terminal_size)
+                            return (w < 20) and 20 or w
                     end,
-                    height = 35,
+                    height = function(term)
+                            local lines = vim.api.nvim_get_option("lines")
+                            local h = math.floor(lines * copts.terminal_size)
+                            return (h < 35) and 35 or h
+                    end,
                 },
             }
         end,
