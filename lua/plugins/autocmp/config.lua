@@ -13,12 +13,12 @@ return function()
         window = {
             completion = cmp.config.window.bordered({
                 border = "rounded",
-                winhighlight = "Normal:Normal,CursorLine:PmenuSel,Search:None,CmpItemKind:Type,CmpItemAbbrMatch:Identifier",
+                winhighlight = "",
                 minwidth = 60,
             }),
             documentation = cmp.config.window.bordered({
                 border = "rounded",
-                winhighlight = "Normal:Normal,CursorLine:PmenuSel,Search:None",
+                winhighlight = "",
             }),
         },
         formatting = {

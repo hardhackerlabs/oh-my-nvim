@@ -13,13 +13,19 @@ return function()
             mru = { limit = 9 },
             shortcut = {
                 {
-                    desc = ' Update',
+                    desc = ' Sessions',
+                    group = 'HardHackerGreen',
+                    action = 'SessionManager load_session',
+                    key = 'L',
+                },
+                {
+                    desc = '󰚰 Update',
                     group = 'HardHackerPurple',
-                    action = 'PackerUpdate',
+                    action = 'Lazy update',
                     key = 'U' 
                 },
                 {
-                    desc = ' Setup',
+                    desc = ' Setup',
                     group = 'HardHackerCyan',
                     action = 'e ~/.config/nvim/init.lua',
                     key = 'S',
@@ -28,9 +34,4 @@ return function()
             footer = require('custom_opts').home_footer,
         },
     }
-
-    vim.cmd([[
-    hi! link DashboardHeader  HardHackerRed
-    hi! link DashboardFooter  HardHackerGeen
-    ]])
 end

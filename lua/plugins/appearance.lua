@@ -70,5 +70,11 @@ return {
             }
         end,
     },
+
+    -- Improve the ui
+    {
+        'stevearc/dressing.nvim',
+        opts = {},
+    },
 }
 

@@ -27,7 +27,7 @@ map('n', keys.diff_open, ':DiffviewOpen<CR>', option)
 map('n', keys.diff_close, ':DiffviewClose<CR>', option)
 
 -- Supported by floaterm
-map('n', keys.terminal, ':ToggleTerm<CR>a', option)
+map('n', keys.terminal, ':ToggleTerm<CR><C-\\><C-n>a', option)
 map('t', keys.terminal, '<C-\\><C-n>:ToggleTerm<CR>', option)
 
 
@@ -59,3 +59,15 @@ local function setup_save_shortcut()
 end
 
 setup_save_shortcut()
+
+-- Setup autocmd
+local hardhacker_config_group = vim.api.nvim_create_augroup('HardHackerConfigGroup', {})
+
+vim.api.nvim_create_autocmd({ 'User' }, {
+    pattern = "SessionLoadPost",
+    group = hardhacker_config_group,
+    callback = function()
+        vim.api.nvim_command("Neotree position=left source=filesystem action=show toggle=true")
+        vim.api.nvim_command("AerialToggle! right")
+    end,
+})
