@@ -27,7 +27,10 @@ return {
             "nvim-treesitter/nvim-treesitter",
             "nvim-tree/nvim-web-devicons"
         },
-        config = function() require('aerial').setup() end,
+        config = function() require('aerial').setup({
+            lazy_load = false,
+            open_automatic = require('custom_opts').auto_open_outline,
+        }) end,
     },
 
     -- Tab line

@@ -16,7 +16,7 @@ return function()
                     desc = ' Sessions',
                     group = 'HardHackerGreen',
                     action = 'SessionManager load_session',
-                    key = 'L',
+                    key = require('custom_keys').switch_session,
                 },
                 {
                     desc = '󰚰 Update',
@@ -34,4 +34,11 @@ return function()
             footer = require('custom_opts').home_footer,
         },
     }
+
+    vim.cmd([[
+    hi! link DashboardHeader    HardHackerRed
+    hi! link DashboardFooter    HardHackerComment
+    hi! link DashboardMruTitle  Title
+    " DashboardProjectTitle
+    ]])
 end

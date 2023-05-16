@@ -20,6 +20,9 @@ return {
     -- Use the 'F12' shortcut to open or close the terminal.
     terminal            = "<F12>",
 
+    -- Use the 'F6' shortcut to switch a session.
+    switch_session      = "<F6>",
+
     -- Use '<leader>ff, fg, fs' shortcut to find and search files.
     -- Use the 'control + c' to close telescope window. <C-c> is the default setting, can't edit it here.
     find_files          = "<leader>ff",

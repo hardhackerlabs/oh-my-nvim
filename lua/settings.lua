@@ -30,6 +30,8 @@ map('n', keys.diff_close, ':DiffviewClose<CR>', option)
 map('n', keys.terminal, ':ToggleTerm<CR><C-\\><C-n>a', option)
 map('t', keys.terminal, '<C-\\><C-n>:ToggleTerm<CR>', option)
 
+-- Supported by nvim-session-manager
+map('n', keys.switch_session, ':SessionManager load_session<CR>', option)
 
 -- Function to set up the save shortcut
 --
@@ -68,6 +70,5 @@ vim.api.nvim_create_autocmd({ 'User' }, {
     group = hardhacker_config_group,
     callback = function()
         vim.api.nvim_command("Neotree position=left source=filesystem action=show toggle=true")
-        vim.api.nvim_command("AerialToggle! right")
     end,
 })

@@ -10,10 +10,11 @@
 </h1>
 
 
-**A handy, pretty, modern neovim configuration with integrated cool and useful plugins 💎**
+**A consistent, pretty, modern neovim configuration with integrated cool and useful plugins 💎**
 
 ## 📦 Features
 
+* Session load and switch
 * File explorer
 * File find and search
 * Float terminal
@@ -38,6 +39,18 @@
 ![](./docs/images/find.png)
 ![](./docs/images/color-highlight.png)
 
+## 📸 Load and switch project
+
+The video shows opening a project and then switching to another project.
+Here the project is loaded and switched via nvim's session.
+Thus, a project is a session.
+
+![](https://i.imgur.com/RcLA5cy.gif)
+
+When nvim is started in a directory, it is created as a session based on that directory, 
+so we can always start nvim in the root directory of a project.
+
+We can use the `F6` shortcut (by default) to select and switch a project(session).
 
 ## 📌 Requirements
 
@@ -137,4 +150,5 @@ return {
 * [smart-splits.nvim](https://github.com/mrjones2014/smart-splits.nvim)
 * [bufdelete](https://github.com/famiu/bufdelete.nvim)
 * [aerial](https://github.com/stevearc/aerial.nvim)
+* [neovim-session-manager](https://github.com/Shatur/neovim-session-manager)
 
