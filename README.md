@@ -45,7 +45,7 @@ The video shows opening a project and then switching to another project.
 Here the project is loaded and switched via nvim's session.
 Thus, a project is a session.
 
-![](https://i.imgur.com/RcLA5cy.gif)
+![](https://i.imgur.com/MVFAF5R.gif)
 
 When nvim is started in a directory, it is created as a session based on that directory, 
 so we can always start nvim in the root directory of a project.
