@@ -4,7 +4,7 @@ return {
     terminal_style          = "float",              -- options: float
     terminal_transparency   = 6,
     terminal_size           = 0.7,              
-    auto_open_outline       = true,                 -- options: true, false
+    auto_open_outline       = false,                 -- options: true, false
 
     -- Starting screen header.
     home_header = {

@@ -1,57 +1,69 @@
+-- 
+-- You can edit the default settings of the shortcut keys here
+--
 return {
-    -- Use 'control + hjkl' shortcut to switch/jump window.
+    -- The default '<leader>' is the space.
+    leader              = " ",
+
+    -- Use the shortcut to switch/jump window.
     jump_left_window    = "<C-h>", 
     jump_right_window   = "<C-l>",
     jump_up_window      = "<C-k>",
     jump_down_window    = "<C-j>",
 
-    -- Use '<leader>b' shortcut to pick a buffer tab.
+    -- View other usage of the plugin: https://github.com/akinsho/bufferline.nvim
+    -- Use the shortcut to pick a buffer tab.
     pick_tab            = "<leader>b", 
 
-    -- Use the 'F9' shortcut to open or close file explorer.
+    -- View other usage of the plugin: https://github.com/nvim-neo-tree/neo-tree.nvim
+    -- Use the shortcut to open or close file explorer.
     file_explorer       = "<F9>",
+    -- Use the shortcut to open or close git status on a float window.
+    git_status          = "<F8>",
 
-    -- Use the 'F8' shortcut to open or close the outline, it need to call the lsp server.
-    outline             = "<F8>",
+    -- View other usage of the plugin: https://github.com/stevearc/aerial.nvim
+    -- Use the shortcut to open or close the outline, it need to call the lsp server.
+    outline             = "<F7>",
 
-    -- Use the 'F7' shortcut to open or close git status on a float window.
-    git_status          = "<F7>",
+    -- View other usage of the plugin: https://github.com/akinsho/toggleterm.nvim
+    -- Use the shortcut to open or close the terminal.
+    terminal            = "<A-j>",
 
-    -- Use the 'F12' shortcut to open or close the terminal.
-    terminal            = "<F12>",
+    -- View other usage of the plugin: https://github.com/Shatur/neovim-session-manager
+    -- Use the shortcut to switch a session.
+    switch_session      = "<leader>ss",
 
-    -- Use the 'F6' shortcut to switch a session.
-    switch_session      = "<F6>",
-
-    -- Use '<leader>ff, fg, fs' shortcut to find and search files.
-    -- Use the 'control + c' to close telescope window. <C-c> is the default setting, can't edit it here.
+    -- View other usage of the plugin: https://github.com/nvim-telescope/telescope.nvim
+    -- Use the shortcut to find, search files and find buffers.
     find_files          = "<leader>ff",
     live_grep           = "<leader>fg",
-    search_cursor       = "<leader>fs",
+    search_cursor       = "<leader>fc",
     find_buffer         = "<leader>fb",
+    -- Use the to close telescope window. <C-c> is the default setting, can't edit it here.
     -- close_telescope  = "<C-c>",
 
-    -- Use '<leader>do' shortcut to open 'git diff'.
-    diff_open           = "<leader>do",
-    -- Use '<leader>dc' shortcut to close 'git diff'.
+    -- View other usage of the plugin: https://github.com/sindrets/diffview.nvim
+    -- Use the shortcut to open 'git diff'.
+    diff_open           = "<leader>df",
+    -- Use the shortcut to close 'git diff'.
     diff_close          = "<leader>dc",
 
-    -- Use 'control + alt + hjkl' shortcut to resize the window
+    -- View other usage of the plugin: https://github.com/mrjones2014/smart-splits.nvim
+    -- Use the shortcut to resize the window, <control + alt + hjkl>
     resize_left         = "<C-A-h>", 
     resize_down         = "<C-A-j>",
     resize_up           = "<C-A-k>",
     resize_right        = "<C-A-l>",
 
+    -- View other usage of the plugin: https://github.com/neovim/nvim-lspconfig
     -- Goto
     goto_definition     = "gd",
     goto_references     = "gr",
     goto_declaration    = "gD",
     goto_impl           = "gi",
     -- goto_back           = "<C-o>",
-
-    -- Use the '<leader>rn' shortcut to rename the code symbols.
-    lsp_rename          = "<leader>rn",
-
-    -- Use the '<leader>fm' shortcut to format your codes.
-    format              = "<leader>fm",
+    -- Use the shortcut to rename the code symbols.
+    lsp_rename          = "<leader>re",
+    -- Use the shortcut to format your codes.
+    format              = "<leader>ft",
 }

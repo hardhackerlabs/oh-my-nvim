@@ -1,4 +1,3 @@
-
 -- Basic settings
 require('basic')
 
@@ -16,7 +15,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.mapleader = ' '
+vim.g.mapleader = require('custom_keys').leader
 vim.g.maplocalleader = '\\'
 
 require('lazy').setup({
@@ -28,4 +27,4 @@ require('lazy').setup({
 
 -- Final settings
 require('settings')
-
+pcall(require, 'custom')

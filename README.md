@@ -10,7 +10,11 @@
 </h1>
 
 
-**A consistent, pretty, modern neovim configuration with integrated cool and useful plugins 💎**
+A **theme-driven**, out-of-the-box modern configuration of neovim 💎
+
+We developed a theme called [HardHacker](https://github.com/hardhackerlabs/themes), which we thought was pretty and eye friendly,
+but we found that many neovim plugins have their own color scheme, 
+so we made a neovim integration environment that matches the hardhacker theme.
 
 ## 📦 Features
 
@@ -41,7 +45,7 @@
 
 ## 📸 Load and switch project
 
-The video shows opening a project and then switching to another project.
+The preview shows opening a project and then switching to another project.
 Here the project is loaded and switched via nvim's session.
 Thus, a project is a session.
 
@@ -94,21 +98,45 @@ Use command `:LspInstall` to download and install a server, e.g. `:LspInstall ru
 
 Use command `:TSInstall` to download and install a parser, e.g. `:TSInstall rust`.
 
-## ⌨️  Shortcut Keys
+## 🏠 Custom
+
+### Configuration structure
+
+```
+~/.config/nvim/ 
+├── init.lua
+├── lazy-lock.json
+└── lua
+    ├── basic.lua
+    ├── custom.lua
+    ├── custom_keys.lua
+    ├── custom_opts.lua
+    ├── plugins
+    │   ├── my_plugins.lua
+    │   └── ...
+    └── settings.lua
+```
+
+* ~/.config/nvim/lua/plugins/**my_plugins.lua**
+
+    This file does not exist by default, you can create this file and configure the plugins you want.
+
+* ~/.config/nvim/lua/**custom.lua**
+
+    This file does not exist by default, you can create this file, then place some custom configuration logic, the custom.lua module will be loaded last.
+
+
+### Shortcut Keys ⌨️  
 
 [👉 View the default shortcut settings](https://github.com/hardhackerlabs/oh-my-nvim/blob/main/lua/custom_keys.lua)
 
 You can edit the default settings of the shortcut keys in this configuration file (`~/.config/nvim/lua/custom_keys.lua`).
 
-## 💖 Recommendations for Neovim GUI
+### Add the plugins you want  
 
-* [Neovide](https://neovide.dev/) (Developed by rust)
+If you want to add your own plugins, you can create a `my_plugins.lua` file in the directory `~/.config/nvim/lua/plugins`. Setup the plugins in this file.
 
-## 🏠 Add the plugins you want
-
-If you want to add your own plugins, you can create a `my.lua` file in the directory `~/.config/nvim/lua/plugins`. Setup the plugins in this file.
-
-The configuration of the plugins in the `my.lua` file can be found in the following template:
+The plugin configuration in the `my_plugins.lua` file refers to the following template (lazy.nvim syntax):
 
 ```
 return {
@@ -151,4 +179,10 @@ return {
 * [bufdelete](https://github.com/famiu/bufdelete.nvim)
 * [aerial](https://github.com/stevearc/aerial.nvim)
 * [neovim-session-manager](https://github.com/Shatur/neovim-session-manager)
+* [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
+
+## 💖 Recommendations for Neovim GUI
+
+* [Neovide](https://neovide.dev/) (Developed by rust)
+
 
