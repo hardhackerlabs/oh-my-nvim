@@ -41,4 +41,4 @@ luac.out
 
 lazy-lock.json
 lua/custom.lua
-lua/custom_plugins/*
+lua/my_plugins/*

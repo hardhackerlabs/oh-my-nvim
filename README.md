@@ -69,24 +69,24 @@ We can use the `F6` shortcut (by default) to select and switch a project(session
 
 ## 🚧 Install
 
-### MacOS/Linux
+#### MacOS/Linux
 
-#### 0️⃣  Backup your current nvim
+0️⃣  **Backup your current nvim**
 
 ```
 mv ~/.config/nvim       ~/.config/nvim.bak
 mv ~/.local/share/nvim  ~/.local/share/nvim.bak
 ```
 
-#### 1️⃣  Clone oh-my-nvim repo
+1️⃣  **Clone oh-my-nvim repo**
 
 ```
 git clone https://github.com/hardhackerlabs/oh-my-nvim.git ~/.config/nvim
 ```
 
-#### 2️⃣  Start `nvim` in your terminal, then automatically install and setup all plugins
+2️⃣  **Start `nvim` in your terminal, then automatically install and setup all plugins**
 
-#### 3️⃣  Restart `nvim` and enjoy it 🍻 
+3️⃣  **Restart `nvim` and enjoy it** 🍻
 
 ## 🧱 Languages
 
@@ -100,7 +100,7 @@ Use command `:TSInstall` to download and install a parser, e.g. `:TSInstall rust
 
 ## 🏠 Custom
 
-### Configuration structure
+#### Configuration structure 🔍
 
 ```
 ~/.config/nvim/ 
@@ -120,7 +120,7 @@ Use command `:TSInstall` to download and install a parser, e.g. `:TSInstall rust
     └── settings.lua
 ```
 
-* ~/.config/nvim/lua/my_plugins/
+* ~/.config/nvim/lua/**my_plugins/**
 
     You can put the plugins you want into the directory.
 
@@ -129,13 +129,13 @@ Use command `:TSInstall` to download and install a parser, e.g. `:TSInstall rust
     This file does not exist by default, you can create this file, then place some custom configuration logic, the custom.lua module will be loaded last.
 
 
-### Shortcut Keys ⌨️  
+#### Shortcut Keys ⌨️  
 
 [👉 View the default shortcut settings](https://github.com/hardhackerlabs/oh-my-nvim/blob/main/lua/custom_keys.lua)
 
 You can edit the default settings of the shortcut keys in this configuration file (`~/.config/nvim/lua/custom_keys.lua`).
 
-### Add the plugins you want  
+#### Add the plugins you want 😍  
 
 If you want to add your own plugins, you can create a `plugin_name.lua` file in the directory `~/.config/nvim/lua/my_plugins`. Setup the plugins in this file.
 
@@ -154,35 +154,22 @@ return {
 }
 ```
 
+#### Recommended plugins 💯
+
+Some useful plugins are configured by default in the directory `~/.config/nvim/misc/recommended`, 
+but they are not loaded into neovim by default , 
+so if you need them, you can copy them into the directory `~/.config/nvim/lua/my_plugins/`.
+
+Example:
+```
+cp ~/.config/nvim/misc/recommended/markdown.lua ~/.config/nvim/lua/my_plugins/
+```
+
 ## 🧩 Plugins
 
-* [lazy.nvim](https://github.com/folke/lazy.nvim) (Plugin manager)
-* [hardhacker-theme](https://github.com/hardhackerlabs/theme-vim)
-* [nvim-notify](https://github.com/rcarriga/nvim-notify)
-* [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
-* [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)
-* [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
-* [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-* [diffview.nvim](https://github.com/sindrets/diffview.nvim)
-* [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-* [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-* [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-* [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
-* [cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
-* [cmp-path](https://github.com/hrsh7th/cmp-path)
-* [cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
-* [lspkind.nvim](https://github.com/onsails/lspkind.nvim)
-* [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-* [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
-* [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-* [neo-tree.lua](https://github.com/nvim-neo-tree/neo-tree.nvim)
-* [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
-* [nvim-colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua)
-* [smart-splits.nvim](https://github.com/mrjones2014/smart-splits.nvim)
-* [bufdelete](https://github.com/famiu/bufdelete.nvim)
-* [aerial](https://github.com/stevearc/aerial.nvim)
-* [neovim-session-manager](https://github.com/Shatur/neovim-session-manager)
-* [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
+[👉 View all plugins integrated](./docs/plugins.md)
+
+Use **lazy.nvim** to manage plugins.
 
 ## 💖 Recommendations for Neovim GUI
 
