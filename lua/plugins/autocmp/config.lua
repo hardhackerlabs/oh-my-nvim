@@ -1,5 +1,6 @@
 return function()
     local cmp = require('cmp')
+
     cmp.setup({
         snippet = {
             -- REQUIRED - you must specify a snippet engine
@@ -42,12 +43,16 @@ return function()
         }),
         sources = cmp.config.sources({
             { name = 'nvim_lsp' },
-            { name = 'treesitter' },
-            { name = 'nvim_lua' },
         }, {
-            { name = 'path' },
             { name = 'buffer' },
-            { name = 'calc' }
+            { name = 'path' },
         }),
     })
+
+    -- If you want insert `(` after select function or method item
+    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+    cmp.event:on(
+        'confirm_done',
+        cmp_autopairs.on_confirm_done()
+    )
 end

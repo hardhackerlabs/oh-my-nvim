@@ -46,30 +46,22 @@ return {
         config = function() 
             local null_ls = require("null-ls")
 
-            null_ls.setup({
-                sources = {
-                    null_ls.builtins.formatting.stylua,
-                    null_ls.builtins.diagnostics.eslint,
-                    null_ls.builtins.completion.spell,
-                },
-            })
+            null_ls.setup()
         end,
     },
 
---    {
---        'tami5/lspsaga.nvim',
---        config = function()
---            require('lspsaga').init_lsp_saga {
---                error_sign = '!',
---                warn_sign = '^',
---                hint_sign = '?',
---                infor_sign = '~',
---                border_style = "round",
---                code_action_prompt = {
---                    enable = false
---                }
---            }
---        end
---    },
+    {
+        "jay-babu/mason-null-ls.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            "williamboman/mason.nvim",
+            "jose-elias-alvarez/null-ls.nvim",
+        },
+        config = function()
+            require("mason-null-ls").setup({
+                automatic_setup = true,
+            })
+        end,
+    },
 
 }
