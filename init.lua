@@ -19,9 +19,17 @@ vim.g.mapleader = require('custom_keys').leader
 vim.g.maplocalleader = '\\'
 
 require('lazy').setup({
-    spec = {import = 'plugins'},
+    spec = {
+        {import = 'plugins'},
+        {import = 'languages'},
+        {import = 'my_plugins'},
+    },
     ui = {
         border = 'rounded',
+    },
+    change_detection = {
+        enabled = true,
+        notify = false, -- get a notification when changes are found
     },
 })
 

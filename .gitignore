@@ -39,7 +39,6 @@ luac.out
 *.x86_64
 *.hex
 
-
 lazy-lock.json
 lua/custom.lua
-
+lua/custom_plugins/*

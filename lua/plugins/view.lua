@@ -18,7 +18,7 @@ return {
         config = function() require('plugins/neo-tree/config')() end,
     }, 
 
-    -- outline
+    -- Outline
     {
         'stevearc/aerial.nvim',
         opts = {},

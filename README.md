@@ -106,20 +106,23 @@ Use command `:TSInstall` to download and install a parser, e.g. `:TSInstall rust
 ~/.config/nvim/ 
 ├── init.lua
 ├── lazy-lock.json
-└── lua
+└── lua/
+    ├── plugins/
+    │   └── ...
+    ├── languages/
+    │   └── ...
+    ├── my_plugins/
+    │   └── ...
     ├── basic.lua
     ├── custom.lua
     ├── custom_keys.lua
     ├── custom_opts.lua
-    ├── plugins
-    │   ├── my_plugins.lua
-    │   └── ...
     └── settings.lua
 ```
 
-* ~/.config/nvim/lua/plugins/**my_plugins.lua**
+* ~/.config/nvim/lua/my_plugins/
 
-    This file does not exist by default, you can create this file and configure the plugins you want.
+    You can put the plugins you want into the directory.
 
 * ~/.config/nvim/lua/**custom.lua**
 
@@ -134,9 +137,9 @@ You can edit the default settings of the shortcut keys in this configuration fil
 
 ### Add the plugins you want  
 
-If you want to add your own plugins, you can create a `my_plugins.lua` file in the directory `~/.config/nvim/lua/plugins`. Setup the plugins in this file.
+If you want to add your own plugins, you can create a `plugin_name.lua` file in the directory `~/.config/nvim/lua/my_plugins`. Setup the plugins in this file.
 
-The plugin configuration in the `my_plugins.lua` file refers to the following template (lazy.nvim syntax):
+The plugin configuration in the `plugin_name.lua` file refers to the following template (lazy.nvim syntax):
 
 ```
 return {
