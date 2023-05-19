@@ -53,7 +53,7 @@ Thus, a project is a session.
 When nvim is started in a directory, it is created as a session based on that directory,
 so we can always start nvim in the root directory of a project.
 
-We can use the `F6` shortcut (by default) to select and switch a project(session).
+We can use the `<leader>ss` shortcut (by default) to select and switch a project(session).
 
 ## 📌 Requirements
 
