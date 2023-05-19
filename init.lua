@@ -34,5 +34,5 @@ require('lazy').setup({
 })
 
 -- Final settings
-require('settings')
+require('core')
 pcall(require, 'custom')

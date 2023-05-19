@@ -1,6 +1,7 @@
 return {
     {
         'simrat39/rust-tools.nvim',
+        lazy = true,
         config = function()
             local rt = require("rust-tools")
             rt.setup({

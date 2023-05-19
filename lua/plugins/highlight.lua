@@ -4,6 +4,10 @@ return {
         'nvim-treesitter/nvim-treesitter',
         config = function()
             require'nvim-treesitter.configs'.setup {
+                indent = {
+                    enable = true,
+                    disable = { },
+                },
                 ensure_installed = { },
                 sync_install = false,
                 auto_install = true,
