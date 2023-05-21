@@ -87,6 +87,14 @@ git clone https://github.com/hardhackerlabs/oh-my-nvim.git ~/.config/nvim
 
 3️⃣ **Restart `nvim` and enjoy it** 🍻
 
+4️⃣ **Keep updated**
+
+## ⌛️ Update
+
+You should keep updated, it's great.
+
+You can use `git pull` to update it. If you've edited something, you may need to merge the content manually, just like a normal git operation.
+
 ## 🧱 Languages
 
 #### Install LSP Server
