@@ -12,6 +12,10 @@ local function set_keymap()
 	map("n", keys.jump_right_window, "<C-W>l", option)
 
 	-- Supported by bufdelete
+	vim.cmd([[cnoreabbrev bdelete Bdelete]])
+	vim.cmd([[cnoreabbrev bdelete! Bdelete!]])
+	vim.cmd([[cnoreabbrev bwipeout Bwipeout]])
+	vim.cmd([[cnoreabbrev bwipeout! Bwipeout!]])
 	-- vim.cmd([[cnoreabbrev q Bdelete]])
 
 	-- Supported by bufferline
@@ -28,9 +32,77 @@ local function set_keymap()
 	map("n", keys.diff_open, ":DiffviewOpen<CR>", option)
 	map("n", keys.diff_close, ":DiffviewClose<CR>", option)
 
-	-- Supported by floaterm
-	map("n", keys.terminal, ":ToggleTerm<CR><C-\\><C-n>a", option)
-	map("t", keys.terminal, "<C-\\><C-n>:ToggleTerm<CR>", option)
+	-- Supported by toggleterm
+	-- float terminal
+	local float_terminal_default = require("toggleterm.terminal").Terminal:new({
+		direction = "float",
+		on_open = function(term)
+			-- when float term opened, disable bottom terminal
+			vim.api.nvim_del_keymap("t", keys.terminal_bottom)
+			vim.cmd("startinsert!")
+		end,
+		on_close = function(t, job, exit_code, name)
+			-- when float term closed, enable bottom terminal
+			map("t", keys.terminal_bottom, "<C-\\><C-n>:lua _bottom_term_toggle()<CR>", option)
+		end,
+	})
+	function _float_term_toggle()
+		float_terminal_default:toggle()
+	end
+
+	-- bottom terminal
+	local bottom_terminal_default = require("toggleterm.terminal").Terminal:new({
+		direction = "horizontal",
+		on_open = function(term)
+			local opts = { buffer = 0 }
+			vim.api.nvim_buf_set_keymap(term.bufnr, "t", "<esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
+			vim.api.nvim_buf_set_keymap(
+				term.bufnr,
+				"t",
+				"<C-h>",
+				[[<Cmd>wincmd h<CR>]],
+				{ noremap = true, silent = true }
+			)
+			vim.api.nvim_buf_set_keymap(
+				term.bufnr,
+				"t",
+				"<C-j>",
+				[[<Cmd>wincmd j<CR>]],
+				{ noremap = true, silent = true }
+			)
+			vim.api.nvim_buf_set_keymap(
+				term.bufnr,
+				"t",
+				"<C-k>",
+				[[<Cmd>wincmd k<CR>]],
+				{ noremap = true, silent = true }
+			)
+			vim.api.nvim_buf_set_keymap(
+				term.bufnr,
+				"t",
+				"<C-l>",
+				[[<Cmd>wincmd l<CR>]],
+				{ noremap = true, silent = true }
+			)
+			vim.cmd("startinsert!")
+		end,
+		on_exit = function(t, job, exit_code, name)
+			vim.cmd("quit!")
+		end,
+	})
+	function _bottom_term_toggle()
+		bottom_terminal_default:toggle()
+	end
+
+	map("n", keys.terminal_float, ":lua _float_term_toggle()<CR>", option)
+	map("t", keys.terminal_float, "<C-\\><C-n>:lua _float_term_toggle()<CR>", option)
+	map("n", keys.terminal_bottom, ":lua _bottom_term_toggle()<CR>", option)
+	map("t", keys.terminal_bottom, "<C-\\><C-n>:lua _bottom_term_toggle()<CR>", option)
+
+	vim.cmd([[
+    command! Termfloat :lua _float_term_toggle()
+    ]])
+	vim.cmd([[cnoreabbrev terminal Termfloat]])
 
 	-- Supported by nvim-session-manager
 	map("n", keys.switch_session, ":SessionManager load_session<CR>", option)

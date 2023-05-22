@@ -27,7 +27,8 @@ return {
 
 	-- View other usage of the plugin: https://github.com/akinsho/toggleterm.nvim
 	-- Use the shortcut to open or close the terminal.
-	terminal = "<A-j>",
+	terminal_float = "<A-j>", -- open terminal in a float window
+	terminal_bottom = "<A-b>", -- open terminal at the bottom
 
 	-- View other usage of the plugin: https://github.com/Shatur/neovim-session-manager
 	-- Use the shortcut to switch a session.

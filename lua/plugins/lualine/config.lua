@@ -77,7 +77,22 @@ return function()
 					},
 				},
 			},
-			lualine_x = { "encoding", "fileformat", "filetype", "filesize" },
+			lualine_x = {
+				{
+					require("noice").api.status.command.get,
+					cond = require("noice").api.status.command.has,
+					color = { fg = colors.yellow },
+				},
+				{
+					require("noice").api.status.search.get,
+					cond = require("noice").api.status.search.has,
+					color = { fg = colors.yellow },
+				},
+				"encoding",
+				"fileformat",
+				"filetype",
+				"filesize",
+			},
 			lualine_y = {
 				"progress",
 				{

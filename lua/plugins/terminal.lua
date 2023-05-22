@@ -6,6 +6,13 @@ return {
 			local copts = require("custom_opts")
 
 			require("toggleterm").setup({
+				size = function(term)
+					if term.direction == "horizontal" then
+						return 15
+					elseif term.direction == "vertical" then
+						return vim.o.columns * 0.4
+					end
+				end,
 				highlights = {
 					Normal = {
 						link = "Normal",
@@ -16,8 +23,13 @@ return {
 					FloatBorder = {
 						link = "Comment",
 					},
+					SignColumn = {
+						link = "EndOfBuffer",
+					},
+					EndOfBuffer = {
+						link = "EndOfBuffer",
+					},
 				},
-				direction = copts.terminal_style,
 				float_opts = {
 					border = "rounded",
 					-- winblend = copts.window_transparency,
