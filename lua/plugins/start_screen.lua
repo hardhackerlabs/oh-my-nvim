@@ -2,6 +2,9 @@ return {
 	{
 		"goolord/alpha-nvim",
 		requires = { "nvim-tree/nvim-web-devicons" },
+		setup = function()
+			vim.g.alpha_statusline = false
+		end,
 		config = function()
 			local dashboard = require("alpha.themes.dashboard")
 
@@ -42,9 +45,12 @@ return {
 
 			require("alpha").setup(dashboard.config)
 
-			-- disable the tabline in alpha dashboard screen
+			-- disable the tabline & statusline in alpha dashboard screen
 			vim.cmd([[
 			autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
+			autocmd User AlphaReady set laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
+			autocmd User AlphaReady :NeoTreeClose
+			autocmd User AlphaReady :AerialCloseAll
 			]])
 		end,
 	},

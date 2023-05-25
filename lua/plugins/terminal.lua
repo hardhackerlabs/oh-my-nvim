@@ -44,6 +44,9 @@ return {
 						return (h < 35) and 35 or h
 					end,
 				},
+				persist_size = true,
+				persist_mode = true,
+				autochdir = true,
 			})
 		end,
 	},

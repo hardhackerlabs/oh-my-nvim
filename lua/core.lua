@@ -145,15 +145,6 @@ end
 
 -- Set up auto command
 local function set_autocmd()
-	-- automatic open neotree sidebar when a session opened
-	local hardhacker_config_group = vim.api.nvim_create_augroup("HardHackerConfigGroup", {})
-	vim.api.nvim_create_autocmd({ "User" }, {
-		pattern = "SessionLoadPost",
-		group = hardhacker_config_group,
-		callback = function()
-			vim.api.nvim_command("Neotree position=left source=filesystem action=show toggle=true")
-		end,
-	})
 end
 
 set_keymap()
