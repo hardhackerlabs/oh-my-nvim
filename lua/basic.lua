@@ -2,7 +2,7 @@ HOME = os.getenv("HOME")
 
 vim.opt.termguicolors = true
 vim.opt.cursorline = true
-vim.opt.updatetime = 300
+vim.opt.updatetime = 200
 
 -- Basic settings
 vim.opt.encoding = "utf-8"

@@ -1,39 +1,39 @@
 return function()
-	local colors = {
-		red = "#e965a5",
-		green = "#b1f2a7",
-		yellow = "#ebde76",
-		blue = "#b1baf4",
-		purple = "#e192ef",
-		cyan = "#b3f4f3",
-		white = "#eee9fc",
-		black = "#282433",
-		selection = "#282433",
-		comment = "#938aad",
-	}
+	--local colors = {
+	--	red = "#e965a5",
+	--	green = "#b1f2a7",
+	--	yellow = "#ebde76",
+	--	blue = "#b1baf4",
+	--	purple = "#e192ef",
+	--	cyan = "#b3f4f3",
+	--	white = "#eee9fc",
+	--	black = "#282433",
+	--	selection = "#282433",
+	--	comment = "#938aad",
+	--}
 
-	local hardhacker_theme = {
-		normal = {
-			a = { fg = colors.black, bg = colors.purple },
-			b = { fg = colors.red, bg = colors.selection },
-			c = { fg = colors.comment, bg = colors.selection },
-		},
+	--local hardhacker_theme = {
+	--	normal = {
+	--		a = { fg = colors.black, bg = colors.purple },
+	--		b = { fg = colors.red, bg = colors.selection },
+	--		c = { fg = colors.comment, bg = colors.selection },
+	--	},
 
-		insert = { a = { fg = colors.black, bg = colors.green } },
-		visual = { a = { fg = colors.black, bg = colors.yellow } },
-		replace = { a = { fg = colors.black, bg = colors.red } },
+	--	insert = { a = { fg = colors.black, bg = colors.green } },
+	--	visual = { a = { fg = colors.black, bg = colors.yellow } },
+	--	replace = { a = { fg = colors.black, bg = colors.red } },
 
-		inactive = {
-			a = { fg = colors.white, bg = colors.selection },
-			b = { fg = colors.white, bg = colors.selection },
-			c = { fg = colors.white, bg = colors.selection },
-		},
-	}
+	--	inactive = {
+	--		a = { fg = colors.white, bg = colors.selection },
+	--		b = { fg = colors.white, bg = colors.selection },
+	--		c = { fg = colors.white, bg = colors.selection },
+	--	},
+	--}
 
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
-			theme = hardhacker_theme,
+			theme = vim.g.hardhacker_lualine_theme,
 			-- component_separators = { left = "░", right = "░" },
 			component_separators = {},
 			section_separators = {},
@@ -81,12 +81,12 @@ return function()
 				{
 					require("noice").api.status.command.get,
 					cond = require("noice").api.status.command.has,
-					color = { fg = colors.yellow },
+					color = { fg = "#ebde76" },
 				},
 				{
 					require("noice").api.status.search.get,
 					cond = require("noice").api.status.search.has,
-					color = { fg = colors.yellow },
+					color = { fg = "#ebde76" },
 				},
 				"encoding",
 				"fileformat",
