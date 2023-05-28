@@ -1,5 +1,5 @@
 return {
-	file_explorer_title = "🚀 FILE EXPLORER",
+	file_explorer_title = "🥷 File Explorer",
 	tab_style = "thin", -- options: thin, thick, slope, slant
 	terminal_size = 0.7, -- control the float terminal only
 	window_transparency = 6,
