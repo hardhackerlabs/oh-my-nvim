@@ -21,7 +21,7 @@ return {
 						link = "Normal",
 					},
 					FloatBorder = {
-						link = "Comment",
+						link = "FloatBorder",
 					},
 					SignColumn = {
 						link = "EndOfBuffer",

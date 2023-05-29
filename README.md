@@ -31,7 +31,6 @@ so we made a neovim integration environment that matches the hardhacker theme.
 - Markdown Preview via your browser
 - Starting screen
 - Quick resize the window
-- Customization of frequently used shortcuts
 - ...
 
 ## 🎆 Preview
@@ -41,19 +40,6 @@ so we made a neovim integration environment that matches the hardhacker theme.
 ![](./docs/images/float-term.png)
 ![](./docs/images/find.png)
 ![](./docs/images/color-highlight.png)
-
-## 📸 Load and switch project
-
-The preview shows opening a project and then switching to another project.
-Here the project is loaded and switched via nvim's session.
-Thus, a project is a session.
-
-![](./docs/images/v.gif)
-
-When nvim is started in a directory, it is created as a session based on that directory,
-so we can always start nvim in the root directory of a project.
-
-We can use the `<leader>ss` shortcut (by default) to select and switch a project(session).
 
 ## 📌 Requirements
 

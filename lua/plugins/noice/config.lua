@@ -22,7 +22,7 @@ return function()
 					icon = "",
 					lang = "lua",
 				},
-				help = { pattern = "^:%s*he?l?p?%s+", icon = "" },
+				help = { pattern = "^:%s*he?l?p?%s+", icon = " " },
 				input = {}, -- Used by input()
 				-- lua = false, -- to disable a format, set to `false`
 			},
@@ -30,8 +30,8 @@ return function()
 		messages = {
 			-- NOTE: If you enable messages, then the cmdline is enabled automatically.
 			-- This is a current Neovim limitation.
-			enabled = true, -- enables the Noice messages UI
-			view = "notify", -- default view for messages
+			enabled = not myopts.close_message_notify, -- enables the Noice messages UI
+			view = "mini", -- default view for messages
 			view_error = "notify", -- view for errors
 			view_warn = "notify", -- view for warnings
 			view_history = "messages", -- view for :messages
