@@ -107,32 +107,6 @@ local function set_keymap()
 	map("n", keys.switch_session, ":SessionManager load_session<CR>", option)
 end
 
--- Set up the save shortcut
-local function set_save_shortcut()
-	local is_mac = vim.fn.has("mac") == 1
-	local is_linux = vim.fn.has("unix") == 1 and not is_mac
-	local is_windows = vim.fn.has("win32") == 1
-
-	-- Define key mappings
-	local map = function(mode, lhs, rhs)
-		vim.api.nvim_set_keymap(mode, lhs, rhs, { noremap = true })
-	end
-
-	if is_mac then
-		map("n", "<D-s>", ":w<CR>")
-		map("v", "<D-s>", ":w<CR>")
-		map("i", "<D-s>", "<Esc>:w<CR>a")
-	elseif is_linux then
-		map("n", "<C-s>", ":w<CR>")
-		map("v", "<C-s>", ":w<CR>")
-		map("i", "<C-s>", "<Esc>:w<CR>a")
-	elseif is_windows then
-		map("n", "<C-s>", ":w<CR>")
-		map("v", "<C-s>", ":w<CR>")
-		map("i", "<C-s>", "<Esc>:w<CR>a")
-	end
-end
-
 -- Set up transparency
 local function set_transparency()
 	local transparency = opts.window_transparency
