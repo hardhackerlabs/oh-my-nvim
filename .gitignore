@@ -43,3 +43,5 @@ lazy-lock.json
 lua/custom.lua
 lua/my_plugins/*
 !lua/my_plugins/example.lua
+package-lock.json
+

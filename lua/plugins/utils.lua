@@ -43,7 +43,7 @@ return {
 				pattern = "SessionLoadPost",
 				group = hardhacker_config_group,
 				callback = function()
-					vim.api.nvim_command("Neotree position=left source=filesystem action=show toggle=true")
+					vim.api.nvim_command("Neotree position=left source=filesystem action=show")
 				end,
 			})
 		end,

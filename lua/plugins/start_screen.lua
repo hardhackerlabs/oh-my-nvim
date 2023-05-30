@@ -35,7 +35,7 @@ return {
 					"  Open current directory",
 					":Neotree position=left source=filesystem action=focus toggle=true<CR>"
 				),
-				create_button("q", "  Quit", ":qa<CR>"),
+				create_button("q", "󰗼  Quit", ":qa<CR>"),
 			}
 
 			-- config

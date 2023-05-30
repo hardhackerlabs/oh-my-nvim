@@ -55,7 +55,6 @@ local function set_keymap()
 		direction = "horizontal",
 		on_open = function(term)
 			local opts = { buffer = 0 }
-			vim.api.nvim_buf_set_keymap(term.bufnr, "t", "<esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
 			vim.api.nvim_buf_set_keymap(
 				term.bufnr,
 				"t",
