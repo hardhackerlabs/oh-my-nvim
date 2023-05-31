@@ -26,6 +26,10 @@ return {
 					additional_vim_regex_highlighting = false,
 				},
 			})
+
+			-- let it to use 'markdown' parser for mdx filetype.
+			local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername
+			ft_to_parser.mdx = "markdown"
 		end,
 	},
 
