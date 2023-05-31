@@ -37,6 +37,12 @@ local function set_keymap()
 	local float_terminal_default = require("toggleterm.terminal").Terminal:new({
 		direction = "float",
 		on_open = function(term)
+			-- forced to change the working dir for terminal
+			-- This will solve the problem of not updating the directory when switching sessions.
+			local cwd = vim.fn.getcwd()
+			if cwd ~= term.dir then
+				term:change_dir(cwd)
+			end
 			-- when float term opened, disable bottom terminal
 			vim.api.nvim_del_keymap("t", keys.terminal_bottom)
 			vim.cmd("startinsert!")
@@ -54,6 +60,14 @@ local function set_keymap()
 	local bottom_terminal_default = require("toggleterm.terminal").Terminal:new({
 		direction = "horizontal",
 		on_open = function(term)
+			-- forced to change the working dir for terminal
+			-- This will solve the problem of not updating the directory when switching sessions.
+			local cwd = vim.fn.getcwd()
+			if cwd ~= term.dir then
+				term:change_dir(cwd)
+			end
+
+			-- set keymapping
 			local opts = { buffer = 0 }
 			vim.api.nvim_buf_set_keymap(
 				term.bufnr,
@@ -117,10 +131,8 @@ local function set_transparency()
 end
 
 -- Set up auto command
-local function set_autocmd()
-end
+local function set_autocmd() end
 
 set_keymap()
-set_save_shortcut()
 set_transparency()
 set_autocmd()
