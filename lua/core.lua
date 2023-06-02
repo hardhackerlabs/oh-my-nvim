@@ -14,9 +14,14 @@ local function set_keymap()
 	vim.cmd([[
     " press esc to cancel search highlight
     nnoremap <silent> <Esc> :nohlsearch<CR>:echo<CR>
+	]])
+
+	-- for markdown file
+	vim.cmd([[
     " optimized up and down move when set wrap for markdown file
     autocmd FileType markdown noremap <buffer> j gj
     autocmd FileType markdown noremap <buffer> k gk
+	autocmd FileType markdown setlocal wrap
 	]])
 
 	-- Supported by bufdelete
