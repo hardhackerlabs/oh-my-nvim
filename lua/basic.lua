@@ -82,6 +82,4 @@ vim.cmd([[
     exec        "nohlsearch"
     syntax      enable
     syntax      on
-    " press esc to cancel search highlight
-    nnoremap <silent> <Esc> :nohlsearch<CR>:echo<CR>
 ]])

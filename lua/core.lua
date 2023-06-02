@@ -11,12 +11,21 @@ local function set_keymap()
 	map("n", keys.jump_up_window, "<C-W>k", option)
 	map("n", keys.jump_right_window, "<C-W>l", option)
 
+	vim.cmd([[
+    " press esc to cancel search highlight
+    nnoremap <silent> <Esc> :nohlsearch<CR>:echo<CR>
+    " optimized up and down move when set wrap for markdown file
+    autocmd FileType markdown noremap <buffer> j gj
+    autocmd FileType markdown noremap <buffer> k gk
+	]])
+
 	-- Supported by bufdelete
-	vim.cmd([[cnoreabbrev bdelete Bdelete]])
-	vim.cmd([[cnoreabbrev bdelete! Bdelete!]])
-	vim.cmd([[cnoreabbrev bwipeout Bwipeout]])
-	vim.cmd([[cnoreabbrev bwipeout! Bwipeout!]])
-	-- vim.cmd([[cnoreabbrev q Bdelete]])
+	vim.cmd([[
+	cnoreabbrev bdelete Bdelete
+	cnoreabbrev bdelete! Bdelete!
+	cnoreabbrev bwipeout Bwipeout
+	cnoreabbrev bwipeout! Bwipeout!
+	]])
 
 	-- Supported by bufferline
 	map("n", keys.pick_tab, ":BufferLinePick<CR>", option)
