@@ -51,15 +51,6 @@ return {
 	-- zen-mode
 	{
 		"folke/zen-mode.nvim",
-		dependencies = {
-			{
-				"junegunn/limelight.vim",
-				init = function()
-					vim.g.limelight_conceal_guifg = "#938AAD"
-					vim.g.limelight_paragraph_span = 1
-				end,
-			},
-		},
 		opts = {
 			window = {
 				backdrop = 1, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
@@ -67,8 +58,8 @@ return {
 				-- * an absolute number of cells when > 1
 				-- * a percentage of the width / height of the editor when <= 1
 				-- * a function that returns the width or the height
-				width = 80, -- width of the Zen window
-				height = 0.8, -- height of the Zen window
+				width = 120, -- width of the Zen window
+				height = 0.9, -- height of the Zen window
 				-- by default, no options are changed for the Zen window
 				-- uncomment any of the options below, or add other vim.wo options you want to apply
 				options = {
@@ -82,17 +73,32 @@ return {
 				},
 			},
 			-- callback where you can add custom code when the Zen window opens
-			on_open = function(win)
-				vim.cmd([[
-				Limelight
-				]])
-			end,
+			on_open = function(win) end,
 			-- callback where you can add custom code when the Zen window closes
-			on_close = function() 
-				vim.cmd([[
-				Limelight!
-				]])
-			end,
+			on_close = function() end,
+		},
+	},
+	{
+		"folke/twilight.nvim",
+		opts = {
+			dimming = {
+				alpha = 0.25, -- amount of dimming
+				-- we try to get the foreground from the highlight groups or fallback color
+				-- color = { "Normal", "#eee9fc" },
+				-- term_bg = "#000000", -- if guibg=NONE, this will be used to calculate text color
+				inactive = false, -- when true, other windows will be fully dimmed (unless they contain the same buffer)
+			},
+			context = 10, -- amount of lines we will try to show around the current line
+			treesitter = true, -- use treesitter when available for the filetype
+			-- treesitter is used to automatically expand the visible text,
+			-- but you can further control the types of nodes that should always be fully expanded
+			expand = { -- for treesitter, we we always try to expand to the top-most ancestor with these types
+				"function",
+				"method",
+				"table",
+				"if_statement",
+			},
+			exclude = {}, -- exclude these filetypes
 		},
 	},
 }
