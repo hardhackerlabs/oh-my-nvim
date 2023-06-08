@@ -20,17 +20,18 @@ so we made a neovim integration environment that matches the hardhacker theme.
 - Session load and switch
 - File explorer
 - File find and search
-- Float terminal
+- Terminal
 - LSP
-- Pretty code highlighting, Colors highlighting
+- Pretty Code highlighting, Colors highlighting
 - Auto completion
 - Languages
 - Git integration
 - Git diff view
-- Pretty Tab line, Status line
-- Markdown Preview via your browser
+- Pretty Tabline, Statusline, Winbar, Outline
 - Starting screen
 - Quick resize the window
+- Zen mode
+- Markdown Preview via your browser
 - ...
 
 ## 🎆 Preview
@@ -163,7 +164,3 @@ cp ~/.config/nvim/misc/recommended/markdown.lua ~/.config/nvim/lua/my_plugins/
 [👉 View all plugins integrated](./docs/plugins.md)
 
 Use **lazy.nvim** to manage plugins.
-
-## 💖 Recommendations for Neovim GUI
-
-- [Neovide](https://neovide.dev/) (Developed by rust)

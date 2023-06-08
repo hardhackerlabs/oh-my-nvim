@@ -34,9 +34,8 @@ return function()
 		options = {
 			icons_enabled = true,
 			theme = vim.g.hardhacker_lualine_theme,
-			-- component_separators = { left = "░", right = "░" },
-			component_separators = {},
-			section_separators = {},
+			component_separators = "",
+			section_separators = { left = "", right = "" },
 			disabled_filetypes = {
 				statusline = {},
 				winbar = {},
@@ -51,7 +50,7 @@ return function()
 			},
 		},
 		sections = {
-			lualine_a = { "mode" },
+			lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
 			lualine_b = {
 				{ "branch" },
 				{ "diff" },
@@ -81,19 +80,17 @@ return function()
 				{
 					require("noice").api.status.command.get,
 					cond = require("noice").api.status.command.has,
-					color = { fg = "#ebde76" },
 				},
 				{
 					require("noice").api.status.search.get,
 					cond = require("noice").api.status.search.has,
-					color = { fg = "#ebde76" },
 				},
 				"encoding",
 				"fileformat",
 				"filetype",
-				"filesize",
 			},
 			lualine_y = {
+				"filesize",
 				"progress",
 				{
 					"diagnostics",
@@ -120,7 +117,7 @@ return function()
 					always_visible = false, -- Show diagnostics even if there are none.
 				},
 			},
-			lualine_z = { "location" },
+			lualine_z = { { "location", separator = { right = "" }, left_padding = 2 } },
 		},
 		inactive_sections = {
 			lualine_a = {},
