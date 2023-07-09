@@ -37,9 +37,9 @@ return {
 	-- View other usage of the plugin: https://github.com/nvim-telescope/telescope.nvim
 	-- Use the shortcut to find, search files and find buffers.
 	find_files = "<leader>ff",
-	live_grep = "<leader>fg",
-	search_cursor = "<leader>fc",
-	find_buffer = "<leader>fb",
+	live_grep = "<leader>gg",
+	search_cursor = "<leader>cc",
+	find_buffer = "<leader>bb",
 	-- Use the to close telescope window. <C-c> is the default setting, can't edit it here.
 	-- close_telescope  = "<C-c>",
 
