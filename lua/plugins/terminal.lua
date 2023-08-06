@@ -40,7 +40,7 @@ return {
 					end,
 					height = function(term)
 						local lines = vim.api.nvim_get_option("lines")
-						local h = math.floor(lines * copts.terminal_size)
+						local h = math.floor(lines * (copts.terminal_size + 0.1))
 						return (h < 35) and 35 or h
 					end,
 				},
