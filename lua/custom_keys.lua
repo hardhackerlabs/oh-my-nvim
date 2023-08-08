@@ -13,7 +13,7 @@ return {
 
 	-- View other usage of the plugin: https://github.com/akinsho/bufferline.nvim
 	-- Use the shortcut to pick a buffer tab.
-	pick_tab = "<leader>b",
+	pick_tab = "<leader>tt",
 
 	-- View other usage of the plugin: https://github.com/nvim-neo-tree/neo-tree.nvim
 	-- Use the shortcut to open or close file explorer.
