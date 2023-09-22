@@ -83,3 +83,8 @@ vim.cmd([[
     syntax      enable
     syntax      on
 ]])
+
+-- modified by myself
+-- disable mouse
+-- vim.o.mousemodel = extend
+vim.o.mouse = ""

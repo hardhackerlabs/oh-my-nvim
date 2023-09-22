@@ -1,3 +1,5 @@
+forked from hardhackerlabs/oh-my-nvim
+
 <p align="center">
   <img width="180" src="https://github.com/hardhackerlabs/themes/raw/master/media/logo/logo.png" alt="HardHacker">
 </p>
