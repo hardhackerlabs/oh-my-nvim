@@ -10,6 +10,25 @@ local function set_keymap()
 	map("n", keys.jump_down_window, "<C-W>j", option)
 	map("n", keys.jump_up_window, "<C-W>k", option)
 	map("n", keys.jump_right_window, "<C-W>l", option)
+	
+	-- modified by myself
+	-- ----------------------------------------------------------------------
+	-- ALT+N 切换 tab
+	-- ----------------------------------------------------------------------
+	map("n", "<m-1>", ":tabn 1<CR>", option)
+	map("i", "<m-1>", "<ESC>:tabn 1<CR>", option)
+	map("n", "<m-2>", ":tabn 2<CR>", option)
+	map("i", "<m-2>", "<ESC>:tabn 2<CR>", option)
+	map("n", "<m-3>", ":tabn 3<CR>", option)
+	map("i", "<m-3>", "<ESC>:tabn 3<CR>", option)
+	map("n", "<m-4>", ":tabn 4<CR>", option)
+	map("i", "<m-4>", "<ESC>:tabn 4<CR>", option)
+	map("n", "<m-5>", ":tabn 5<CR>", option)
+	map("i", "<m-5>", "<ESC>:tabn 5<CR>", option)
+	map("n", "<m-6>", ":tabn 6<CR>", option)
+	map("i", "<m-6>", "<ESC>:tabn 6<CR>", option)
+	map("n", "<m-7>", ":tabn 7<CR>", option)
+	map("i", "<m-7>", "<ESC>:tabn 7<CR>", option)
 
 	vim.cmd([[
     " press esc to cancel search highlight
@@ -37,6 +56,8 @@ local function set_keymap()
 
 	-- Supported by nvim-tree
 	map("n", keys.file_explorer, ":Neotree position=left source=filesystem action=show toggle=true<CR>", option)
+	-- modified by myself for nerdtree
+	map("n", "<space>nt", ":Neotree position=left source=filesystem action=show toggle=true<CR>", option)
 	map("n", keys.git_status, ":Neotree position=float source=git_status action=show toggle=true<CR>", option)
 
 	-- Supported by aerial
@@ -123,6 +144,9 @@ local function set_keymap()
 
 	map("n", keys.terminal_float, ":lua _float_term_toggle()<CR>", option)
 	map("t", keys.terminal_float, "<C-\\><C-n>:lua _float_term_toggle()<CR>", option)
+	-- modified by myself for floaterm
+	map("n", "<space><space>", ":lua _float_term_toggle()<CR>", option)
+	map("t", "<ESC>", "<C-\\><C-n>:lua _float_term_toggle()<CR>", option)
 	map("n", keys.terminal_bottom, ":lua _bottom_term_toggle()<CR>", option)
 	map("t", keys.terminal_bottom, "<C-\\><C-n>:lua _bottom_term_toggle()<CR>", option)
 

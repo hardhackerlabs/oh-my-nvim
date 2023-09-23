@@ -88,3 +88,6 @@ vim.cmd([[
 -- disable mouse
 -- vim.o.mousemodel = extend
 vim.o.mouse = ""
+
+-- disbale display buffer
+-- vim.cmd('command! HideBuffer hide')
