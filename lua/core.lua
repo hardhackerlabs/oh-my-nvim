@@ -30,6 +30,12 @@ local function set_keymap()
 	map("n", "<m-7>", ":tabn 7<CR>", option)
 	map("i", "<m-7>", "<ESC>:tabn 7<CR>", option)
 
+	-- ----------------------------------------------------------------------
+	-- INSERT 模式下使用 EMACS 键位
+	-- ----------------------------------------------------------------------
+	map("i", "<c-a>", "<home>", option)
+	map("i", "<c-e>", "<end>", option)
+
 	vim.cmd([[
     " press esc to cancel search highlight
     nnoremap <silent> <Esc> :nohlsearch<CR>:echo<CR>
