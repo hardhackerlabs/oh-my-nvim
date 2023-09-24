@@ -1,15 +1,5 @@
-forked from hardhackerlabs/oh-my-nvim
+forked from [hardhackerlabs/oh-my-nvim](https://github.com/hardhackerlabs/oh-my-nvim)
 
-<p align="center">
-  <img width="180" src="https://github.com/hardhackerlabs/themes/raw/master/media/logo/logo.png" alt="HardHacker">
-</p>
-
-<h1 align="center">
-    oh-my-nvim<br/>
-  <a href="https://discord.com/invite/MGmp9QjfkK">
-    <img src="https://img.shields.io/discord/1095552215944527962?style=for-the-badge&logo=discord&color=e965a5&logoColor=eee9fc&labelColor=282433"/>
-  </a>
-</h1>
 
 A **theme-driven**, out-of-the-box modern configuration of neovim 💎
 
@@ -69,7 +59,7 @@ mv ~/.local/share/nvim  ~/.local/share/nvim.bak
 1️⃣ **Clone oh-my-nvim repo**
 
 ```
-git clone https://github.com/hardhackerlabs/oh-my-nvim.git ~/.config/nvim
+git clone https://github.com/MrTangsai/oh-my-nvim.git ~/.config/nvim
 ```
 
 2️⃣ **Start `nvim` in your terminal, then automatically install and setup all plugins**
