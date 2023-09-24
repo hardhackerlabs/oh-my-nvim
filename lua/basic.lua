@@ -91,3 +91,16 @@ vim.o.mouse = ""
 
 -- disbale display buffer
 -- vim.cmd('command! HideBuffer hide')
+
+-- fold code
+vim.opt.foldmethod = "indent"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = false -- no fold to be applied when open a file
+vim.opt.foldlevel = 99 -- if not set this, fold will be everywhere
+
+vim.cmd([[
+augroup _fold_bug_solution  " https://github.com/nvim-telescope/telescope.nvim/issues/559
+    autocmd!
+    autocmd BufRead * autocmd BufWinEnter * ++once normal! zx
+  augroup end
+]])

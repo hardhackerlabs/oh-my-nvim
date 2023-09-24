@@ -36,6 +36,14 @@ local function set_keymap()
 	map("i", "<c-a>", "<home>", option)
 	map("i", "<c-e>", "<end>", option)
 
+	-- ----------------------------------------------------------------------
+	--  缓存：插件 unimpaired 中定义了 [b, ]b 来切换缓存
+	-- ----------------------------------------------------------------------
+	map("n", "<leader>bn", ":bn<cr>", option)
+	map("n", "<leader>bp", ":bp<cr>", option)
+	map("n", "<leader>1", ":bn<cr>", option)
+	map("n", "<leader>2", ":bp<cr>", option)
+
 	vim.cmd([[
     " press esc to cancel search highlight
     nnoremap <silent> <Esc> :nohlsearch<CR>:echo<CR>

@@ -86,6 +86,7 @@ return function()
 					cond = require("noice").api.status.search.has,
 				},
 				"encoding",
+				"aerial",
 				"fileformat",
 				"filetype",
 			},

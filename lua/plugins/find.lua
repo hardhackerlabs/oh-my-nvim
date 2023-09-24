@@ -1,18 +1,31 @@
 return {
-    {
-        'nvim-telescope/telescope.nvim',
-        dependencies = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
-        config = function()
-            require'telescope'.setup{}
+	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
+		config = function()
+			-- require'telescope'.setup{}
+			require("telescope").setup({
+				extensions = {
+					aerial = {
+						-- Display symbols as <root>.<parent>.<symbol>
+						show_nesting = {
+							["_"] = false, -- This key will be the default
+							json = true, -- You can set the option for specific filetypes
+							yaml = true,
+						},
+					},
+				},
+			})
 
-            local option = {noremap = true, silent = true }
+			local option = { noremap = true, silent = true }
 
-            local keys = require("custom_keys")
-            local builtin = require('telescope.builtin')
-            vim.keymap.set('n', keys.find_files, builtin.find_files, option)
-            vim.keymap.set('n', keys.live_grep, builtin.live_grep, option)
-            vim.keymap.set('n', keys.search_cursor, builtin.grep_string, option)
-            vim.keymap.set('n', keys.find_buffer, builtin.buffers, option)
-        end,
-    },
+			local keys = require("custom_keys")
+			local builtin = require("telescope.builtin")
+			vim.keymap.set("n", keys.find_files, builtin.find_files, option)
+			vim.keymap.set("n", keys.live_grep, builtin.live_grep, option)
+			vim.keymap.set("n", keys.search_cursor, builtin.grep_string, option)
+			vim.keymap.set("n", keys.find_buffer, builtin.buffers, option)
+			vim.keymap.set('n', '<Leader>aa', require'telescope'.extensions.aerial.aerial, option)
+		end,
+	},
 }
