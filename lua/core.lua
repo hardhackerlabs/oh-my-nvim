@@ -10,7 +10,7 @@ local function set_keymap()
 	map("n", keys.jump_down_window, "<C-W>j", option)
 	map("n", keys.jump_up_window, "<C-W>k", option)
 	map("n", keys.jump_right_window, "<C-W>l", option)
-	
+
 	-- modified by myself
 	-- ----------------------------------------------------------------------
 	-- ALT+N 切换 tab
@@ -171,6 +171,11 @@ local function set_keymap()
 
 	-- Supported by nvim-session-manager
 	map("n", keys.switch_session, ":SessionManager load_session<CR>", option)
+
+	-- Jumping to context (Supported by nvim-treesitter-context)
+	map("n", "[c", function()
+		require("treesitter-context").go_to_context()
+	end, { silent = true })
 end
 
 -- Set up transparency

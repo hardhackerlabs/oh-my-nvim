@@ -41,6 +41,7 @@ return {
 			vim.keymap.set("n", keys.find_buffer, builtin.buffers, option)
 			vim.keymap.set("n", "<Leader>aa", require("telescope").extensions.aerial.aerial, option)
 			vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>", option)
+			vim.keymap.set("n", "<leader>gr", ":Telescope lsp_references<CR>", option)
 		end,
 	},
 }
