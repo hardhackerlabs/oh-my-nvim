@@ -25,18 +25,18 @@ return {
 				-- a dedicated handler.
 				function(server_name) -- default handler (optional)
 					-- require("lspconfig")[server_name].setup({})
-					require'lspconfig'.pylsp.setup{
-					  settings = {
-						pylsp = {
-						  plugins = {
-							pycodestyle = {
-							  ignore = {'W391', 'E301', 'E302'},
-							  maxLineLength = 100
-							}
-						  }
-						}
-					  }
-					}
+					require("lspconfig").pylsp.setup({
+						settings = {
+							pylsp = {
+								plugins = {
+									pycodestyle = {
+										ignore = { "W391", "E301", "E302" },
+										maxLineLength = 120,
+									},
+								},
+							},
+						},
+					})
 				end,
 				-- Next, you can provide a dedicated handler for specific servers.
 				-- For example, a handler override for the `rust_analyzer`:

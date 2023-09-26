@@ -11,10 +11,13 @@ return {
 			vim.cmd("colorscheme hardhacker")
 			vim.g.hardhacker_custom_highlights = {
 				-- [[hi! link TreesitterContextBottom Type]],
-				[[hi TreesitterContextBottom gui=underline guisp=Grey]],
-				[[hi! link TreesitterContext Type]],
-				[[hi! link TreesitterContextLineNumber Type]],
-				[[hi! link TreesitterContextSeparator Type]],
+				-- [[hi TreesitterContextBottom gui=underline guisp=Grey]],
+				[[hi! link TreesitterContextBottom HardHackerGreenSelection]],
+				[[hi! link TreesitterContext NormalFloat]],
+				[[hi! link TreesitterContextLineNumber LineNr]],
+				[[hi! link TreesitterContextSeparator FloatBorder]],
+				[[hi! link MatchParen HardHackerYellowYellow]],
+				[[hi! link MatchParenCur MatchParen]],
 			}
 		end,
 	},
@@ -30,5 +33,9 @@ return {
 		"mhartington/oceanic-next",
 		priority = 1000,
 		--	lazy = lvim.colorscheme ~= "OceanicNext",
+	},
+	{
+		"Mofiqul/dracula.nvim",
+		priority = 1000,
 	},
 }

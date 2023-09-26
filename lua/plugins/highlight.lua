@@ -25,10 +25,15 @@ return {
 					end,
 					additional_vim_regex_highlighting = false,
 				},
+				matchup = {
+					enable = true, -- mandatory, false will disable the whole extension
+					disable = { "c", "ruby" }, -- optional, list of language that will be disabled
+					-- [options]
+				},
 			})
 
 			-- let it to use 'markdown' parser for mdx filetype.
-			vim.treesitter.language.register('markdown', 'mdx')
+			vim.treesitter.language.register("markdown", "mdx")
 		end,
 	},
 

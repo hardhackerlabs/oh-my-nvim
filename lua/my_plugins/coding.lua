@@ -32,4 +32,9 @@ return {
 		"JoosepAlviste/nvim-ts-context-commentstring",
 		event = "BufRead",
 	},
+	{
+		"andymass/vim-matchup",
+		dependencies = "nvim-treesitter/nvim-treesitter",
+		event = { "BufReadPost", "BufNewFile" },
+	},
 }
