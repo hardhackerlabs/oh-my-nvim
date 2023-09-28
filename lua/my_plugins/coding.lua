@@ -14,7 +14,7 @@ return {
 				enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
 				throttle = true, -- Throttles plugin updates (may improve performance)
 				max_lines = 3, -- How many lines the window should span. Values <= 0 mean no limit.
-				trim_scope = 'outer',
+				trim_scope = "outer",
 				multiline_threshold = 1,
 				before_context = 0, -- 显示函数/类之前的行数
 				after_context = 0, -- 显示函数/类之后的行数
@@ -41,5 +41,9 @@ return {
 		"andymass/vim-matchup",
 		dependencies = "nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPost", "BufNewFile" },
+	},
+	{
+		"nvim-treesitter/playground",
+		event = "BufRead",
 	},
 }
