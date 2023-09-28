@@ -37,6 +37,17 @@ return {
 							},
 						},
 					})
+					require("lspconfig").lua_ls.setup({
+						settings = {
+							Lua = {
+								diagnostics = {
+									globals = { "vim" },
+									-- disable = { 'redundant-parameter', 'duplicate-set-field', },
+									enable = false,
+								},
+							},
+						},
+					})
 				end,
 				-- Next, you can provide a dedicated handler for specific servers.
 				-- For example, a handler override for the `rust_analyzer`:
