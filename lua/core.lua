@@ -169,6 +169,59 @@ local function set_keymap()
     ]])
 	vim.cmd([[cnoreabbrev terminal Termfloat]])
 
+	-- python terminal
+	local python_terminal_default = require("toggleterm.terminal").Terminal:new({
+		cmd = "/home/tangs/miniconda3/envs/torch/bin/ipython",
+		display_name = "ipython",
+		count = 99,
+		direction = "vertical",
+		on_open = function(term)
+			-- forced to change the working dir for terminal
+			-- This will solve the problem of not updating the directory when switching sessions.
+			local cwd = vim.fn.getcwd()
+			if cwd ~= term.dir then
+				term:change_dir(cwd)
+			end
+			vim.cmd("startinsert!")
+		end,
+		on_exit = function(t, job, exit_code, name)
+			vim.cmd("quit!")
+		end,
+	})
+	function _python_term_toggle()
+		python_terminal_default:toggle()
+	end
+
+	map("n", "<A-d>", ":lua _python_term_toggle()<CR>", option)
+	map("t", "<A-d>", "<C-\\><C-n>:lua _python_term_toggle()<CR>", option)
+
+	function _send_line_to_ipython(current_mode)
+		if require("toggleterm.terminal").get(99, true) == nil then
+			local current_window = vim.api.nvim_get_current_win() -- save current window
+			local start_line, start_col
+			if current_mode == "n" then
+				start_line, start_col = unpack(vim.api.nvim_win_get_cursor(0))
+			elseif current_mode == "v" then
+				local utils = require("toggleterm.utils")
+				local res = utils.get_line_selection("visual")
+				start_line, start_col = unpack(res.start_pos)
+			end
+			python_terminal_default:toggle()
+			-- Jump back with the cursor where we were at the beginning of the selection
+			vim.api.nvim_set_current_win(current_window)
+			vim.api.nvim_command("stopinsert!")
+			vim.api.nvim_win_set_cursor(current_window, { start_line, start_col })
+		end
+		if current_mode == "n" then
+			vim.api.nvim_command("ToggleTermSendCurrentLine 99")
+		elseif current_mode == "v" then
+			vim.api.nvim_command("ToggleTermSendVisualLines 99")
+		end
+	end
+
+	map("n", "<leader>db", ":lua _send_line_to_ipython('n')<CR>", option)
+	map("v", "<leader>db", ":'<,'>lua _send_line_to_ipython('v')<CR>", option)
+
 	-- Supported by nvim-session-manager
 	map("n", keys.switch_session, ":SessionManager load_session<CR>", option)
 
