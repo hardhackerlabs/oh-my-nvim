@@ -42,6 +42,9 @@ return {
 			vim.keymap.set("n", "<Leader>aa", require("telescope").extensions.aerial.aerial, option)
 			vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>", option)
 			vim.keymap.set("n", "<leader>gr", ":Telescope lsp_references<CR>", option)
+			vim.keymap.set("n", "<leader>gd", ":Telescope lsp_definitions<CR>", option)
+			vim.keymap.set("n", "<leader>GG", ":lua require'telescope.builtin'.live_grep{ search_dirs={\"%:p\"} }<CR>", option) 
+			vim.keymap.set("n", "<leader>CC", ":lua require'telescope.builtin'.grep_string{ search_dirs={\"%:p\"} }<CR>", option) 
 		end,
 	},
 }

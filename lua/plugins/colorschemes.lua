@@ -6,7 +6,7 @@ return {
 		priority = 1000,
 		config = function()
 			vim.g.hardhacker_darker = 0
-			-- if tilde==1, not display endofbuffer and nontext(this causes gitsigns.current_line_blame) 
+			-- if tilde==1, not display endofbuffer and nontext(this causes gitsigns.current_line_blame)
 			vim.g.hardhacker_hide_tilde = 1
 			vim.g.hardhacker_keyword_italic = 0
 			vim.cmd("colorscheme hardhacker")
@@ -19,7 +19,7 @@ return {
 				[[hi! link TreesitterContextSeparator FloatBorder]],
 				[[hi! link MatchParen HardHackerYellowYellow]],
 				[[hi! link MatchParenCur MatchParen]],
-				[[hi NonText guifg=#ABB2BF]], 
+				[[hi NonText guifg=#ABB2BF]],
 				-- [[hi EndOfBuffer=guifg=#282a36]]
 			}
 		end,
@@ -40,5 +40,12 @@ return {
 	{
 		"Mofiqul/dracula.nvim",
 		priority = 1000,
+	},
+	{
+		"loctvl842/monokai-pro.nvim",
+		priority = 1000,
+		config = function()
+			require("monokai-pro").setup()
+		end,
 	},
 }
