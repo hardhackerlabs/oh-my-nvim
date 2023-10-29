@@ -81,18 +81,6 @@ return {
 		end,
 	},
 
-	-- cmd line
-	{
-		"folke/noice.nvim",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
-		},
-		config = function()
-			require("plugins/noice/config")()
-		end,
-	},
-
 	-- Improve the ui
 	{
 		"stevearc/dressing.nvim",

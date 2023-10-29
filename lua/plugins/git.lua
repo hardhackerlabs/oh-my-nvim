@@ -4,7 +4,7 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			require("gitsigns").setup({
-				current_line_blame = true,
+				current_line_blame = false,
 				preview_config = {
 					border = "rounded",
 				},
