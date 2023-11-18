@@ -171,10 +171,11 @@ local function set_keymap()
 
 	-- python terminal
 	local python_terminal_default = require("toggleterm.terminal").Terminal:new({
-		cmd = "/home/tangs/miniconda3/envs/torch/bin/ipython",
+		-- cmd = "/home/tangs/miniconda3/envs/torch/bin/ipython",
 		display_name = "ipython",
 		count = 99,
-		direction = "vertical",
+		-- direction = "vertical",
+		direction = "float",
 		on_open = function(term)
 			-- forced to change the working dir for terminal
 			-- This will solve the problem of not updating the directory when switching sessions.
@@ -184,6 +185,8 @@ local function set_keymap()
 			end
 			vim.cmd("startinsert!")
 		end,
+		-- install autoenv then change_dir cound change virtual environment by .env
+		cmd = vim.fn.executable("ipython") == 1 and vim.fn.exepath("ipython") or vim.fn.exepath("python"),
 		on_exit = function(t, job, exit_code, name)
 			vim.cmd("quit!")
 		end,
@@ -196,13 +199,14 @@ local function set_keymap()
 	map("t", "<A-d>", "<C-\\><C-n>:lua _python_term_toggle()<CR>", option)
 
 	function _send_line_to_ipython(current_mode)
+		local notify = require("notify")
+		local utils = require("toggleterm.utils")
 		if require("toggleterm.terminal").get(99, true) == nil then
 			local current_window = vim.api.nvim_get_current_win() -- save current window
 			local start_line, start_col
 			if current_mode == "n" then
 				start_line, start_col = unpack(vim.api.nvim_win_get_cursor(0))
 			elseif current_mode == "v" then
-				local utils = require("toggleterm.utils")
 				local res = utils.get_line_selection("visual")
 				start_line, start_col = unpack(res.start_pos)
 			end
@@ -211,11 +215,25 @@ local function set_keymap()
 			vim.api.nvim_set_current_win(current_window)
 			vim.api.nvim_command("stopinsert!")
 			vim.api.nvim_win_set_cursor(current_window, { start_line, start_col })
+			notify("---open ipython term backend---\nPress 'A+d' to toggle", "INFO", {
+				title = "_python_term_toggle",
+			})
 		end
 		if current_mode == "n" then
 			vim.api.nvim_command("ToggleTermSendCurrentLine 99")
+			notify("send line to ipython backend", "INFO", {
+				title = "_send_line_to_ipython",
+			})
 		elseif current_mode == "v" then
+			local start_line, end_line, lines
+			local res = utils.get_line_selection("visual")
+			start_line = res.start_pos[1]
+			end_line = res.end_pos[1]
+			lines = start_line <= end_line and end_line - start_line + 1 or start_line - end_line + 1
 			vim.api.nvim_command("ToggleTermSendVisualLines 99")
+			notify("send " .. tostring(lines) .. " lines to ipython backend", "INFO", {
+				title = "_send_line_to_ipython",
+			})
 		end
 	end
 
