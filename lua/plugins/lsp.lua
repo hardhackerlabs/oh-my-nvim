@@ -30,9 +30,19 @@ return {
 							pylsp = {
 								plugins = {
 									pycodestyle = {
+										-- enabled = false,
 										ignore = { "W391", "E301", "E302" },
 										maxLineLength = 120,
 									},
+									-- ruff = {
+									-- 	enabled = false,
+									-- },
+									-- 	macabe = {
+									-- 		enabled = false,
+									-- 	},
+									-- 	pyflakes = {
+									-- 		-- enabled = false,
+									-- 	},
 								},
 							},
 						},
