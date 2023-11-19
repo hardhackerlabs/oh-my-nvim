@@ -185,7 +185,10 @@ local function set_keymap()
 			end
 			vim.cmd("startinsert!")
 		end,
+		-- FIX: 
 		-- install autoenv then change_dir cound change virtual environment by .env
+		-- TODO:
+		-- change_dir cannot recognize .env
 		cmd = vim.fn.executable("ipython") == 1 and vim.fn.exepath("ipython") or vim.fn.exepath("python"),
 		on_exit = function(t, job, exit_code, name)
 			vim.cmd("quit!")
