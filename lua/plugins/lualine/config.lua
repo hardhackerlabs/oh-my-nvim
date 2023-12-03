@@ -82,7 +82,7 @@ return function()
 				"filetype",
 			},
 			lualine_y = {
-				"filesize",
+				"%L",
 				"progress",
 				-- {
 				-- 	"diagnostics",
