@@ -185,7 +185,7 @@ local function set_keymap()
 			end
 			vim.cmd("startinsert!")
 		end,
-		-- FIX: 
+		-- FIX:
 		-- install autoenv then change_dir cound change virtual environment by .env
 		-- TODO:
 		-- change_dir cannot recognize .env
@@ -250,6 +250,14 @@ local function set_keymap()
 	map("n", "[c", function()
 		require("treesitter-context").go_to_context()
 	end, { silent = true })
+
+	-- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
+	map("n", "zR", require("ufo").openAllFolds, option)
+	map("n", "zM", require("ufo").closeAllFolds, option)
+	map("n", "zr", require("ufo").openFoldsExceptKinds, option)
+	map("n", "zm", require("ufo").closeFoldsWith, option) -- closeAllFolds == closeFoldsWith(0)
+
+	map("n", "<F2>", ":set relativenumber!<CR>", option)
 end
 
 -- Set up transparency
