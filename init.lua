@@ -1,5 +1,6 @@
 -- Basic settings
 require("basic")
+require("neovide")
 
 -- Load plugins
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
