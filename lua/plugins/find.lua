@@ -5,6 +5,16 @@ return {
 		config = function()
 			-- require'telescope'.setup{}
 			require("telescope").setup({
+				defaults = {
+					path_display = {
+						-- "shorten",
+						shorten = {
+							len = 3,
+							exclude = { 1, -1 },
+						},
+						truncate = true,
+					},
+				},
 				extensions = {
 					aerial = {
 						-- Display symbols as <root>.<parent>.<symbol>
@@ -29,8 +39,8 @@ return {
 					-- },
 				},
 			})
-			require("telescope").load_extension "file_browser"
-			require("telescope").load_extension "project"
+			require("telescope").load_extension("file_browser")
+			require("telescope").load_extension("project")
 
 			local option = { noremap = true, silent = true }
 
@@ -44,8 +54,18 @@ return {
 			vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>", option)
 			vim.keymap.set("n", "<leader>gr", ":Telescope lsp_references<CR>", option)
 			vim.keymap.set("n", "<leader>gd", ":Telescope lsp_definitions<CR>", option)
-			vim.keymap.set("n", "<leader>GG", ":lua require'telescope.builtin'.live_grep{ search_dirs={\"%:p\"} }<CR>", option) 
-			vim.keymap.set("n", "<leader>CC", ":lua require'telescope.builtin'.grep_string{ search_dirs={\"%:p\"} }<CR>", option) 
+			vim.keymap.set(
+				"n",
+				"<leader>GG",
+				":lua require'telescope.builtin'.live_grep{ search_dirs={\"%:p\"} }<CR>",
+				option
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>CC",
+				":lua require'telescope.builtin'.grep_string{ search_dirs={\"%:p\"} }<CR>",
+				option
+			)
 			vim.keymap.set("n", "<C-p>", ":lua require'telescope'.extensions.project.project{}<CR>", option)
 		end,
 	},

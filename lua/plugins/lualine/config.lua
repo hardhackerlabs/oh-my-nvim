@@ -60,7 +60,8 @@ return function()
 					"filename",
 					file_status = true, -- Displays file status (readonly status, modified status)
 					newfile_status = false, -- Display new file status (new file means no write after created)
-					path = 3, -- 0: Just the filename
+					-- path = 3, -- 0: Just the filename
+					path = 4, -- 0: Just the filename
 					-- 1: Relative path
 					-- 2: Absolute path
 					-- 3: Absolute path, with tilde as the home directory
@@ -77,14 +78,14 @@ return function()
 				},
 			},
 			lualine_x = {
-				{
-					require("noice").api.status.command.get,
-					cond = require("noice").api.status.command.has,
-				},
-				{
-					require("noice").api.status.search.get,
-					cond = require("noice").api.status.search.has,
-				},
+				-- {
+				-- 	require("noice").api.status.command.get,
+				-- 	cond = require("noice").api.status.command.has,
+				-- },
+				-- {
+				-- 	require("noice").api.status.search.get,
+				-- 	cond = require("noice").api.status.search.has,
+				-- },
 				"encoding",
 				"aerial",
 				"fileformat",
@@ -92,6 +93,7 @@ return function()
 			},
 			lualine_y = {
 				"filesize",
+				-- "%L",
 				"progress",
 				-- {
 				-- 	"diagnostics",

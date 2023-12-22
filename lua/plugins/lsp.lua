@@ -31,7 +31,7 @@ return {
 								plugins = {
 									pycodestyle = {
 										-- enabled = false,
-										ignore = { "W391", "E301", "E302" },
+										ignore = { "W391", "E301", "E302", "W503" },
 										maxLineLength = 120,
 									},
 									-- ruff = {
