@@ -198,8 +198,10 @@ local function set_keymap()
 		python_terminal_default:toggle()
 	end
 
-	map("n", "<A-d>", ":lua _python_term_toggle()<CR>", option)
-	map("t", "<A-d>", "<C-\\><C-n>:lua _python_term_toggle()<CR>", option)
+	if not vim.fn.has("win64") then
+		map("n", "<A-d>", ":lua _python_term_toggle()<CR>", option)
+		map("t", "<A-d>", "<C-\\><C-n>:lua _python_term_toggle()<CR>", option)
+	end
 
 	function _send_line_to_ipython(current_mode)
 		local notify = require("notify")
@@ -240,8 +242,10 @@ local function set_keymap()
 		end
 	end
 
-	map("n", "<leader>db", ":lua _send_line_to_ipython('n')<CR>", option)
-	map("v", "<leader>db", ":'<,'>lua _send_line_to_ipython('v')<CR>", option)
+	if not vim.fn.has("win64") then
+		map("n", "<leader>db", ":lua _send_line_to_ipython('n')<CR>", option)
+		map("v", "<leader>db", ":'<,'>lua _send_line_to_ipython('v')<CR>", option)
+	end
 
 	-- Supported by nvim-session-manager
 	map("n", keys.switch_session, ":SessionManager load_session<CR>", option)

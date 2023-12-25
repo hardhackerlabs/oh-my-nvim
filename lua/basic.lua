@@ -87,7 +87,22 @@ vim.cmd([[
 -- modified by myself
 -- disable mouse
 -- vim.o.mousemodel = extend
-vim.o.mouse = ""
+if vim.fn.has("win64") then
+	vim.o.mouse = "a"
+else
+	vim.o.mouse = ""
+end
+
+-- get pwsh for win11 terminal
+if vim.fn.has("win64") then
+	vim.cmd("let &shell = has('win32') ? 'powershell' : 'pwsh'")
+	vim.cmd(
+		"let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'"
+	)
+	vim.cmd("let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'")
+	vim.cmd("let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'")
+	vim.cmd("set shellquote= shellxquote=")
+end
 
 -- disbale display buffer
 -- vim.cmd('command! HideBuffer hide')
@@ -97,7 +112,7 @@ vim.o.mouse = ""
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 -- vim.opt.foldenable = false -- no fold to be applied when open a file
 -- vim.opt.foldlevel = 99 -- if not set this, fold will be everywhere
-vim.o.foldcolumn = '0' -- '0' is not bad
+vim.o.foldcolumn = "0" -- '0' is not bad
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = false
