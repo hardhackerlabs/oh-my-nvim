@@ -74,7 +74,7 @@ return {
 	-- Tab line
 	{
 		"akinsho/bufferline.nvim",
-		version = "v4.1.0",
+		version = "v4.6.1",
 		dependencies = "nvim-tree/nvim-web-devicons",
 		config = function()
 			require("plugins/bufferline/config")()
