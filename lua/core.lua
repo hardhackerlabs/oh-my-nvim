@@ -145,7 +145,14 @@ local function set_transparency()
 end
 
 -- Set up auto command
-local function set_autocmd() end
+local function set_autocmd()
+	local current_colorscheme = vim.g.colors_name
+	vim.api.nvim_create_autocmd("VimEnter", {
+		callback = function()
+			vim.cmd("colorscheme" .. " " .. current_colorscheme)
+		end,
+	})
+end
 
 set_keymap()
 set_transparency()
